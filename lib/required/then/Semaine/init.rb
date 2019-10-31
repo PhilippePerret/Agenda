@@ -16,5 +16,4 @@ class Semaine
       end
     end
   end
-
 end #/Semaine

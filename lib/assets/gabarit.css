@@ -12,6 +12,7 @@ div.semaine div.jour {
   border-width: 0 1px;
   border-style: solid;
   border-color: grey;
+  position: relative;
 }
 
 div.semaine div.jour div.nom_jour {
@@ -19,6 +20,37 @@ div.semaine div.jour div.nom_jour {
   font-family: "Avenir Next";
   font-size: 1.5em;
   text-align: center;
+}
+
+div.semaine div.jour div.travail {
+  border-width: 1px 0;
+  border-color: grey;
+  border-style: solid;
+  position: absolute;
+  left: 0;
+  padding: 4px 8px;
+}
+div.semaine div#colonne_heures {
+  position: relative;
+}
+div.semaine div#colonne_heures div.heure {
+  position: absolute;
+  border-bottom: 1px solid grey;
+  width: 4000px;
+  text-align: left;
+  margin-left: 120px;
+}
+div.semaine div#colonne_heures div.heure span.heure {
+  position: absolute;
+  left: -56px;
+  top: -8px;
+  text-align: right;
+  width: 50px;
+}
+
+div.semaine div.jour div.travail div.time {
+  font-size: 0.75em;
+  text-align: right;
 }
 
 div.semaine div.lundi {

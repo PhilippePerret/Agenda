@@ -15,7 +15,8 @@ class Semaine
   def body
     gabarit = File.read(File.join(ASSETS_FOLDER,'gabarit.html'))
 
-    gabarit.sub(/__LUNDI__/, building_days['lundi'])
+    gabarit.sub!(/__COLONNE_HEURES__/, colonne_heures)
+    gabarit.sub!(/__LUNDI__/, building_days['lundi'])
   end
 
   # Tous les jours construits
@@ -33,12 +34,26 @@ class Semaine
     djour = data[jour]
     str = ""
     data[jour].each do |heure, donnees|
-      str = "<div>#{heure} #{donnees['faire']}</div>"
+      travail = Semaine::Jour::Travail.new(heure, donnees)
+      str << travail.build
     end
     str
   end
 
 
+  # Construction de la colonne contenant les heures, depuis la première heure
+  # définie jusqu'à la dernière.
+  def colonne_heures
+    @colonne_heures ||= begin
+      str = ''
+      10.times do |i|
+        top = (i * 60) + Semaine::TOP_HOUR
+        heure = Semaine.first_hour + i
+        str << "<div class='heure' style='top:#{top}px;'><span class='heure'>#{(heure*60).to_hour}</span></div>"
+      end
+      str
+    end
+  end
   def header
     <<-HTML
 <!DOCTYPE html>

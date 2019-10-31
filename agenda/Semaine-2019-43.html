@@ -18,6 +18,7 @@ div.semaine div.jour {
   border-width: 0 1px;
   border-style: solid;
   border-color: grey;
+  position: relative;
 }
 
 div.semaine div.jour div.nom_jour {
@@ -25,6 +26,37 @@ div.semaine div.jour div.nom_jour {
   font-family: "Avenir Next";
   font-size: 1.5em;
   text-align: center;
+}
+
+div.semaine div.jour div.travail {
+  border-width: 1px 0;
+  border-color: grey;
+  border-style: solid;
+  position: absolute;
+  left: 0;
+  padding: 4px 8px;
+}
+div.semaine div#colonne_heures {
+  position: relative;
+}
+div.semaine div#colonne_heures div.heure {
+  position: absolute;
+  border-bottom: 1px solid grey;
+  width: 4000px;
+  text-align: left;
+  margin-left: 120px;
+}
+div.semaine div#colonne_heures div.heure span.heure {
+  position: absolute;
+  left: -46px;
+  top: -8px;
+  text-align: right;
+  width: 50px;
+}
+
+div.semaine div.jour div.travail div.time {
+  font-size: 0.75em;
+  text-align: right;
 }
 
 div.semaine div.lundi {
@@ -56,9 +88,29 @@ div.semaine div.dimanche {
 
 
 <div class="semaine">
+  <div id="colonne_heures"><div class='heure' style='top:40px;'><span class='heure'>7h00</span></div><div class='heure' style='top:100px;'><span class='heure'>8h00</span></div><div class='heure' style='top:160px;'><span class='heure'>9h00</span></div><div class='heure' style='top:220px;'><span class='heure'>10h00</span></div><div class='heure' style='top:280px;'><span class='heure'>11h00</span></div><div class='heure' style='top:340px;'><span class='heure'>12h00</span></div><div class='heure' style='top:400px;'><span class='heure'>13h00</span></div><div class='heure' style='top:460px;'><span class='heure'>14h00</span></div><div class='heure' style='top:520px;'><span class='heure'>15h00</span></div><div class='heure' style='top:580px;'><span class='heure'>16h00</span></div></div>
   <div class="jour lundi">
     <div class="nom_jour">Lundi</div>
-    <div>9h00 Travail sur l'article de blog *article_courant</div>
+    <div class="travail" style="top:120px;height:60px;background-color:palegreen;">
+  <div class="faire">
+    Définir le travail de la semaine
+  </div>
+  <div class="time">8h00 - 9h00</div>
+</div>
+<div class="travail" style="top:180px;height:90px;background-color:palegoldenrod;">
+  <div class="faire">
+    Travail sur l'article de blog (« TITRE ARTICLE COURANT »)
+  </div>
+  <div class="time">9h00 - 10h30</div>
+</div>
+<div class="travail" style="top:420px;height:180px;background-color:paleturquoise;">
+  <div class="faire">
+    Travail sur roman courant (« TITRE ROMAN COURANT »)
+  </div>
+  <div class="time">13h00 - 16h00</div>
+</div>
+
+    <div style="clear:both;"></div>
   </div>
   <div class="jour mardi">
     <div class="nom_jour">Mardi</div>
