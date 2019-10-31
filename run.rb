@@ -1,11 +1,15 @@
 #!/usr/bin/env ruby
 # encoding: UTF-8
 
-# 12:45 Samedi 1er octobre
-class Fixnum;
-  def days; self * 24 * 3600 end
-  def hours; self * 3600 end
+require_relative 'lib/_required'
+
+if defined?(Semaine)
+
+  # On doit prendre le fichier voulu
+  semaine = Semaine.new(2019,43)
+
+  puts "Désolé, le fichier #{semaine.data_path} n'existe pas." unless semaine.data_file_exist?
+
+else
+  puts "La classe Semaine n'est pas défini"
 end
-#
-# # c = 11👍👎 → ⇥ ⇤ ✅ ❏ ◽️ ☑️ 🌀♭♮♯𝄪♪ ←↓→↑←➖✄✂︎🔨🔧⚙️🛠📓✏️⛔️🚫➕
-# # 🗃 ⚠️🔔📎⭕️❌✅👓🕶🚧📌📍🖥📝✏️⌨️🖱↩︎🔒⇧⌘⌥⌃
