@@ -1,0 +1,44 @@
+body {
+  font-size: 1em;
+}
+div.semaine {
+  display: grid;
+  grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+  grid-template-rows: 100 40 40 40 40 40 40 40 40;
+
+  border: 2px solid black;
+}
+div.semaine div.jour {
+  border-width: 0 1px;
+  border-style: solid;
+  border-color: grey;
+}
+
+div.semaine div.jour div.nom_jour {
+  font-weight: bold;
+  font-family: "Avenir Next";
+  font-size: 1.5em;
+  text-align: center;
+}
+
+div.semaine div.lundi {
+  grid-column:2/3;
+}
+div.semaine div.mardi {
+  grid-column:3/4;
+}
+div.semaine div.mercredi {
+  grid-column:4/5;
+}
+div.semaine div.jeudi {
+  grid-column:5/6;
+}
+div.semaine div.vendredi {
+  grid-column:6/7;
+}
+div.semaine div.samedi {
+  grid-column:7/8;
+}
+div.semaine div.dimanche {
+  grid-column:8;
+}

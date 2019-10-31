@@ -1,3 +1,5 @@
+require 'yaml'
+
 APPFOLDER = File.expand_path(File.dirname(File.dirname(__FILE__)))
 puts APPFOLDER
 

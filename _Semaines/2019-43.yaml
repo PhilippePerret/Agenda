@@ -1,0 +1,21 @@
+---
+  article_courant: &article_courant TITRE_ARTICLE_COURANT
+  film_analysed: &film_analyzed TITRE_FILM_ANALYSÉ
+
+  lundi:
+    8h00:
+      faire: Définir le travail de la semaine
+      duree: 60
+    9h00:
+      faire: Travail sur l'article de blog *article_courant
+      duree: 90
+  mardi:
+    8h00:
+      faire: Travailler sur le programme FILM ANALYZOR ou poursuivre l'analyse de *film_analyzed
+      duree: 60
+    9h00:
+      faire: Rédaction de l'article de blog *article_courant
+      duree: 90
+    10h30:
+      faire: Commentaires document Icare
+      duree: 90
