@@ -43,6 +43,12 @@ div.semaine div.jour div.nom_jour {
   text-align: center;
 }
 
+.semaine .jour .date_jour {
+  text-align: center;
+  font-weight:bold;
+  font-size:1.1em;
+}
+
 div.semaine div.jour div.travail {
   border-width: 1px 0;
   border-color: grey;

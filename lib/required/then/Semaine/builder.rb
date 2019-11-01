@@ -42,12 +42,18 @@ class Semaine
   # Construction du jour +jour+
   def build_day jour
     djour = data[jour]
-    return '' if djour.nil?
+    indice_jour = Semaine::DAYS[jour][:indice] - 1
+    date_jour = from_jour + indice_jour
     str = ""
+    # On ajoute la date exacte du jour
+    str << "<div class='date_jour'>#{date_jour.strftime("%d %m %Y")}</div>"
+
+    return str if djour.nil?
+
     data[jour].each do |heure, donnees|
       donnees.merge!({
         semaine: self,
-        indice_jour: Semaine::DAYS[jour][:indice]
+        indice_jour: indice_jour
       })
       travail = Semaine::Jour::Travail.new(heure, donnees)
       str << travail.build

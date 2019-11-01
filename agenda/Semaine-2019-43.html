@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Agenda semaine 43</title>
     <style type="text/css">
-    body {  font-size: 1em;  margin:0;  padding:0;}.label {  color: #777777;}.discret {  color:#BABADA!important;}a {  text-decoration:none;  color:inherit;}div.semaine {  display: grid;  /* grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%; */  grid-template-columns: 16% 12% 12% 12% 12% 12% 12% 12%;  grid-template-rows: 100 40 40 40 40 40 40 40 40;  border: 2px solid black;}div.semaine div.jour {  border-width: 0 1px;  border-style: solid;  border-color: grey;  position: relative;  z-index:5;}div.semaine div.jour.exergue {  background-color: rgba(31, 244, 31, 0.24);  border:3px solid green;}div.semaine div.jour div.nom_jour {  font-weight: bold;  font-family: "Avenir Next";  font-size: 1.1em;  text-align: center;}div.semaine div.jour div.travail {  border-width: 1px 0;  border-color: grey;  border-style: solid;  position: absolute;  left: 0;  padding: 4px 8px;  z-index:100;}div.semaine div#colonne_heures {  position: relative;  z-index: 1;}div.semaine div#colonne_heures div.heure {  position: absolute;  border-bottom: 1px solid grey;  width: 4000px;  text-align: left;  margin-left: 214px;}div.semaine div#colonne_heures div.heure span.heure {  position: absolute;  left: -56px;  top: -8px;  text-align: right;  width: 50px;}div.semaine div#colonne_heures div.demi-heure {  position: absolute;  border-bottom: 1px solid #CCCCCC;  width: 4000px;  text-align: left;  margin-left: 224px;}div.semaine div#colonne_heures div.demi-heure span.demi-heure {  position: absolute;  left: -56px;  top: -8px;  text-align: right;  width: 50px;}div.semaine div.jour div.travail div.time {  position:absolute;  font-size: 0.75em;  bottom:0;  right:4px;}div.semaine div.left-column {  grid-column:1/2;  position:relative;  background-color:#dfdfdf;  z-index:1;}/*  Le bloc contenant les informations sur la semaine courante  */.semaine .left-column .semaine-infos {  position:absolute;  top:4px;  padding:1em;}/* L'indication du numéro de la semaine */.semaine .left-column .semaine-infos {}.semaine .left-column .semaine-infos .semaine-number {  font-size: 1.1em;  font-weight: bold;  font-variant: small-caps;  margin-bottom:0.6em;}.semaine .left-column .semaine-infos .semaine-number .arrow-other-week {  font-size:0.8em;  margin: 0 8px;}div.semaine div.lundi {  grid-column:2/3;}div.semaine div.mardi {  grid-column:3/4;}div.semaine div.mercredi {  grid-column:4/5;}div.semaine div.jeudi {  grid-column:5/6;}div.semaine div.vendredi {  grid-column:6/7;}div.semaine div.samedi {  grid-column:7/8;}div.semaine div.dimanche {  grid-column:8;}/**  Le curseur de temps  */div#time_cursor {  position:absolute;  color:red;  background-color:red;  text-align:center;  width:100%;  height:2px;  top:20px;  left:216px;  z-index:1000;}div#time_cursor span.boule {  position:absolute;  top:-0.5em;}div#time_cursor span.current_hour {  position:absolute;  left:-46px;  top:-0.4em;  background-color:#dfdfdf;}
+    body {  font-size: 1em;  margin:0;  padding:0;}.label {  color: #777777;}.discret {  color:#BABADA!important;}a {  text-decoration:none;  color:inherit;}div.semaine {  display: grid;  /* grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%; */  grid-template-columns: 16% 12% 12% 12% 12% 12% 12% 12%;  grid-template-rows: 100 40 40 40 40 40 40 40 40;  border: 2px solid black;}div.semaine div.jour {  border-width: 0 1px;  border-style: solid;  border-color: grey;  position: relative;  z-index:5;}div.semaine div.jour.exergue {  background-color: rgba(31, 244, 31, 0.24);  border:3px solid green;}div.semaine div.jour div.nom_jour {  font-weight: bold;  font-family: "Avenir Next";  font-size: 1.1em;  text-align: center;}.semaine .jour .date_jour {  text-align: center;  font-weight:bold;  font-size:1.1em;}div.semaine div.jour div.travail {  border-width: 1px 0;  border-color: grey;  border-style: solid;  position: absolute;  left: 0;  padding: 4px 8px;  z-index:100;}div.semaine div#colonne_heures {  position: relative;  z-index: 1;}div.semaine div#colonne_heures div.heure {  position: absolute;  border-bottom: 1px solid grey;  width: 4000px;  text-align: left;  margin-left: 214px;}div.semaine div#colonne_heures div.heure span.heure {  position: absolute;  left: -56px;  top: -8px;  text-align: right;  width: 50px;}div.semaine div#colonne_heures div.demi-heure {  position: absolute;  border-bottom: 1px solid #CCCCCC;  width: 4000px;  text-align: left;  margin-left: 224px;}div.semaine div#colonne_heures div.demi-heure span.demi-heure {  position: absolute;  left: -56px;  top: -8px;  text-align: right;  width: 50px;}div.semaine div.jour div.travail div.time {  position:absolute;  font-size: 0.75em;  bottom:0;  right:4px;}div.semaine div.left-column {  grid-column:1/2;  position:relative;  background-color:#dfdfdf;  z-index:1;}/*  Le bloc contenant les informations sur la semaine courante  */.semaine .left-column .semaine-infos {  position:absolute;  top:4px;  padding:1em;}/* L'indication du numéro de la semaine */.semaine .left-column .semaine-infos {}.semaine .left-column .semaine-infos .semaine-number {  font-size: 1.1em;  font-weight: bold;  font-variant: small-caps;  margin-bottom:0.6em;}.semaine .left-column .semaine-infos .semaine-number .arrow-other-week {  font-size:0.8em;  margin: 0 8px;}div.semaine div.lundi {  grid-column:2/3;}div.semaine div.mardi {  grid-column:3/4;}div.semaine div.mercredi {  grid-column:4/5;}div.semaine div.jeudi {  grid-column:5/6;}div.semaine div.vendredi {  grid-column:6/7;}div.semaine div.samedi {  grid-column:7/8;}div.semaine div.dimanche {  grid-column:8;}/**  Le curseur de temps  */div#time_cursor {  position:absolute;  color:red;  background-color:red;  text-align:center;  width:100%;  height:2px;  top:20px;  left:216px;  z-index:1000;}div#time_cursor span.boule {  position:absolute;  top:-0.5em;}div#time_cursor span.current_hour {  position:absolute;  left:-46px;  top:-0.4em;  background-color:#dfdfdf;}
     /* Valeurs propres à la configuration */
     .semaine .jour {height: 1020px;}
     </style>
@@ -12,7 +12,7 @@
       const WEEK_START_TIME = 1571608800000;
       const WEEK_END_TIME = 1572217200000;
       const FIRST_DAY_HOUR = 7;
-      const TRIGGERS = {"1571637600000":{"time":1571637600000,"message":"Définir le travail de la semaine","categorie":"palegreen"},"1571641200000":{"time":1571641200000,"message":"Travail sur l'article de blog","categorie":"palegoldenrod"},"1571655600000":{"time":1571655600000,"message":"Travail sur roman courant","categorie":"paleturquoise"},"1571724000000":{"time":1571724000000,"message":"Travailler sur le programme FILM ANALYZOR ou poursuivre l'analyse","categorie":"palevioletred"},"1571727600000":{"time":1571727600000,"message":"Rédaction de l'article de blog","categorie":"palegoldenrod"},"1571733000000":{"time":1571733000000,"message":"Commentaires document Icare","categorie":"paleturquoise"}};
+      const TRIGGERS = {"1571551200000":{"time":1571551200000,"message":"Définir le travail de la semaine","categorie":"palegreen"},"1571554800000":{"time":1571554800000,"message":"Travail sur l'article de blog","categorie":"palegoldenrod"},"1571569200000":{"time":1571569200000,"message":"Travail sur roman courant","categorie":"paleturquoise"},"1571637600000":{"time":1571637600000,"message":"Travailler sur le programme FILM ANALYZOR ou poursuivre l'analyse","categorie":"palevioletred"},"1571641200000":{"time":1571641200000,"message":"Rédaction de l'article de blog","categorie":"palegoldenrod"},"1571646600000":{"time":1571646600000,"message":"Commentaires document Icare","categorie":"paleturquoise"}};
       /**
  * Méthode qui vérifie si un nouveau travail doit être annoncé
  */
@@ -126,6 +126,7 @@ window.move_time_cursor = function(){
   let curhour = document.querySelector('#time_cursor .current_hour');
   var hrs = new Date().getHours();
   var mns = new Date().getMinutes() + 1 ;
+  if (mns > 59) { mns = 0; hrs += 1 }
 
   // // Pour les tests
   // hrs = 7; mns = 0;
@@ -177,7 +178,7 @@ window.addEventListener('beforeunload', ()=>{
   </div>
   <div class="jour lundi">
     <div class="nom_jour">Lundi</div>
-    <div class="travail" style="top:160px;height:52px;background-color:palegreen;">
+    <div class='date_jour'>21 10 2019</div><div class="travail" style="top:160px;height:52px;background-color:palegreen;">
   <div class="faire">
     Définir le travail de la semaine
   </div>
@@ -200,7 +201,7 @@ window.addEventListener('beforeunload', ()=>{
   </div>
   <div class="jour mardi">
     <div class="nom_jour">Mardi</div>
-    <div class="travail" style="top:160px;height:52px;background-color:palevioletred;">
+    <div class='date_jour'>22 10 2019</div><div class="travail" style="top:160px;height:52px;background-color:palevioletred;">
   <div class="faire">
     Travailler sur le programme FILM ANALYZOR ou poursuivre l'analyse (« TITRE FILM ANALYSÉ »)
   </div>
@@ -222,23 +223,23 @@ window.addEventListener('beforeunload', ()=>{
   </div>
   <div class="jour mercredi">
     <div class="nom_jour">Mercredi</div>
-    
+    <div class='date_jour'>23 10 2019</div>
   </div>
   <div class="jour jeudi">
     <div class="nom_jour">Jeudi</div>
-    
+    <div class='date_jour'>24 10 2019</div>
   </div>
   <div class="jour vendredi">
     <div class="nom_jour">Vendredi</div>
-    
+    <div class='date_jour'>25 10 2019</div>
   </div>
   <div class="jour samedi">
     <div class="nom_jour">Samedi</div>
-    
+    <div class='date_jour'>26 10 2019</div>
   </div>
   <div class="jour dimanche">
     <div class="nom_jour">Dimanche</div>
-    
+    <div class='date_jour'>27 10 2019</div>
   </div>
 </div>
 
