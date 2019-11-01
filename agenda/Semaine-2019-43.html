@@ -4,83 +4,9 @@
     <meta charset="utf-8">
     <title>Agenda semaine 43</title>
     <style type="text/css">
-    body {
-  font-size: 1em;
-}
-div.semaine {
-  display: grid;
-  grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
-  grid-template-rows: 100 40 40 40 40 40 40 40 40;
-
-  border: 2px solid black;
-}
-div.semaine div.jour {
-  border-width: 0 1px;
-  border-style: solid;
-  border-color: grey;
-  position: relative;
-}
-
-div.semaine div.jour div.nom_jour {
-  font-weight: bold;
-  font-family: "Avenir Next";
-  font-size: 1.5em;
-  text-align: center;
-}
-
-div.semaine div.jour div.travail {
-  border-width: 1px 0;
-  border-color: grey;
-  border-style: solid;
-  position: absolute;
-  left: 0;
-  padding: 4px 8px;
-}
-div.semaine div#colonne_heures {
-  position: relative;
-}
-div.semaine div#colonne_heures div.heure {
-  position: absolute;
-  border-bottom: 1px solid grey;
-  width: 4000px;
-  text-align: left;
-  margin-left: 120px;
-}
-div.semaine div#colonne_heures div.heure span.heure {
-  position: absolute;
-  left: -46px;
-  top: -8px;
-  text-align: right;
-  width: 50px;
-}
-
-div.semaine div.jour div.travail div.time {
-  font-size: 0.75em;
-  text-align: right;
-}
-
-div.semaine div.lundi {
-  grid-column:2/3;
-}
-div.semaine div.mardi {
-  grid-column:3/4;
-}
-div.semaine div.mercredi {
-  grid-column:4/5;
-}
-div.semaine div.jeudi {
-  grid-column:5/6;
-}
-div.semaine div.vendredi {
-  grid-column:6/7;
-}
-div.semaine div.samedi {
-  grid-column:7/8;
-}
-div.semaine div.dimanche {
-  grid-column:8;
-}
-
+    body {  font-size: 1em;  margin:0;  padding:0;}.label {  color: #777777;}div.semaine {  display: grid;  /* grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%; */  grid-template-columns: 16% 12% 12% 12% 12% 12% 12% 12%;  grid-template-rows: 100 40 40 40 40 40 40 40 40;  border: 2px solid black;}div.semaine div.jour {  border-width: 0 1px;  border-style: solid;  border-color: grey;  position: relative;  z-index:20;}div.semaine div.jour div.nom_jour {  font-weight: bold;  font-family: "Avenir Next";  font-size: 1.1em;  text-align: center;}div.semaine div.jour div.travail {  border-width: 1px 0;  border-color: grey;  border-style: solid;  position: absolute;  left: 0;  padding: 4px 8px;  z-index:20;}div.semaine div#colonne_heures {  position: relative;  z-index: 10;}div.semaine div#colonne_heures div.heure {  position: absolute;  border-bottom: 1px solid grey;  width: 4000px;  text-align: left;  margin-left: 214px;}div.semaine div#colonne_heures div.heure span.heure {  position: absolute;  left: -56px;  top: -8px;  text-align: right;  width: 50px;}div.semaine div#colonne_heures div.demi-heure {  position: absolute;  border-bottom: 1px solid #CCCCCC;  width: 4000px;  text-align: left;  margin-left: 224px;}div.semaine div#colonne_heures div.demi-heure span.demi-heure {  position: absolute;  left: -56px;  top: -8px;  text-align: right;  width: 50px;}div.semaine div.jour div.travail div.time {  font-size: 0.75em;  text-align: right;}div.semaine div.left-column {  grid-column:1/2;  position:relative;  background-color:#dfdfdf;  z-index:1;}/* Le bloc contenant les informations sur la semaine courante */.semaine .left-column .semaine-infos {  position:absolute;  top:4px;  padding:1em;}/* L'indication du numéro de la semaine */.semaine .left-column .semaine-infos {}.semaine .left-column .semaine-infos .semaine-number {  font-size: 1.1em;  font-weight: bold;  font-variant: small-caps;}div.semaine div.lundi {  grid-column:2/3;}div.semaine div.mardi {  grid-column:3/4;}div.semaine div.mercredi {  grid-column:4/5;}div.semaine div.jeudi {  grid-column:5/6;}div.semaine div.vendredi {  grid-column:6/7;}div.semaine div.samedi {  grid-column:7/8;}div.semaine div.dimanche {  grid-column:8;}
+    /* Valeurs propres à la configuration */
+    .semaine .jour {height: 1020px;}
     </style>
   </head>
   <body>
@@ -88,22 +14,32 @@ div.semaine div.dimanche {
 
 
 <div class="semaine">
-  <div id="colonne_heures"><div class='heure' style='top:40px;'><span class='heure'>7h00</span></div><div class='heure' style='top:100px;'><span class='heure'>8h00</span></div><div class='heure' style='top:160px;'><span class='heure'>9h00</span></div><div class='heure' style='top:220px;'><span class='heure'>10h00</span></div><div class='heure' style='top:280px;'><span class='heure'>11h00</span></div><div class='heure' style='top:340px;'><span class='heure'>12h00</span></div><div class='heure' style='top:400px;'><span class='heure'>13h00</span></div><div class='heure' style='top:460px;'><span class='heure'>14h00</span></div><div class='heure' style='top:520px;'><span class='heure'>15h00</span></div><div class='heure' style='top:580px;'><span class='heure'>16h00</span></div></div>
+  <div id="colonne_heures"><div class='heure' style='top:100px;'><span class='heure'>7h00</span></div><div class='demi-heure' style='top:130px;'></div><div class='heure' style='top:160px;'><span class='heure'>8h00</span></div><div class='demi-heure' style='top:190px;'></div><div class='heure' style='top:220px;'><span class='heure'>9h00</span></div><div class='demi-heure' style='top:250px;'></div><div class='heure' style='top:280px;'><span class='heure'>10h00</span></div><div class='demi-heure' style='top:310px;'></div><div class='heure' style='top:340px;'><span class='heure'>11h00</span></div><div class='demi-heure' style='top:370px;'></div><div class='heure' style='top:400px;'><span class='heure'>12h00</span></div><div class='demi-heure' style='top:430px;'></div><div class='heure' style='top:460px;'><span class='heure'>13h00</span></div><div class='demi-heure' style='top:490px;'></div><div class='heure' style='top:520px;'><span class='heure'>14h00</span></div><div class='demi-heure' style='top:550px;'></div><div class='heure' style='top:580px;'><span class='heure'>15h00</span></div><div class='demi-heure' style='top:610px;'></div><div class='heure' style='top:640px;'><span class='heure'>16h00</span></div><div class='demi-heure' style='top:670px;'></div><div class='heure' style='top:700px;'><span class='heure'>17h00</span></div><div class='demi-heure' style='top:730px;'></div><div class='heure' style='top:760px;'><span class='heure'>18h00</span></div><div class='demi-heure' style='top:790px;'></div><div class='heure' style='top:820px;'><span class='heure'>19h00</span></div><div class='demi-heure' style='top:850px;'></div><div class='heure' style='top:880px;'><span class='heure'>20h00</span></div><div class='demi-heure' style='top:910px;'></div><div class='heure' style='top:940px;'><span class='heure'>21h00</span></div><div class='demi-heure' style='top:970px;'></div><div class='heure' style='top:1000px;'><span class='heure'>22h00</span></div><div class='demi-heure' style='top:1030px;'></div></div>
+  <div class="left-column">
+        <div class="semaine-infos">
+      <div class="semaine-number"><span>semaine </span><span>43</span></div>
+      <div id="" class="semaine-from">
+        <div class="from-jour"><span class="label">du </span><span>21 10 2019</span></div>
+        <div class="to-jour"><span class="label">au </span><span>27 10 2019</span></div>
+      </div>
+    </div>
+
+  </div>
   <div class="jour lundi">
     <div class="nom_jour">Lundi</div>
-    <div class="travail" style="top:120px;height:60px;background-color:palegreen;">
+    <div class="travail" style="top:160px;height:52px;background-color:palegreen;">
   <div class="faire">
     Définir le travail de la semaine
   </div>
   <div class="time">8h00 - 9h00</div>
 </div>
-<div class="travail" style="top:180px;height:90px;background-color:palegoldenrod;">
+<div class="travail" style="top:220px;height:82px;background-color:palegoldenrod;">
   <div class="faire">
     Travail sur l'article de blog (« TITRE ARTICLE COURANT »)
   </div>
   <div class="time">9h00 - 10h30</div>
 </div>
-<div class="travail" style="top:420px;height:180px;background-color:paleturquoise;">
+<div class="travail" style="top:460px;height:172px;background-color:paleturquoise;">
   <div class="faire">
     Travail sur roman courant (« TITRE ROMAN COURANT »)
   </div>
@@ -114,27 +50,45 @@ div.semaine div.dimanche {
   </div>
   <div class="jour mardi">
     <div class="nom_jour">Mardi</div>
-    __MARDI__
+    <div class="travail" style="top:160px;height:52px;background-color:palevioletred;">
+  <div class="faire">
+    Travailler sur le programme FILM ANALYZOR ou poursuivre l'analyse (« TITRE FILM ANALYSÉ »)
+  </div>
+  <div class="time">8h00 - 9h00</div>
+</div>
+<div class="travail" style="top:220px;height:82px;background-color:palegoldenrod;">
+  <div class="faire">
+    Rédaction de l'article de blog (« TITRE ARTICLE COURANT »)
+  </div>
+  <div class="time">9h00 - 10h30</div>
+</div>
+<div class="travail" style="top:310px;height:82px;background-color:paleturquoise;">
+  <div class="faire">
+    Commentaires document Icare
+  </div>
+  <div class="time">10h30 - 12h00</div>
+</div>
+
   </div>
   <div class="jour mercredi">
     <div class="nom_jour">Mercredi</div>
-    __MERCREDI__
+    
   </div>
   <div class="jour jeudi">
     <div class="nom_jour">Jeudi</div>
-    __JEUDI__
+    
   </div>
   <div class="jour vendredi">
     <div class="nom_jour">Vendredi</div>
-    __VENDREDI__
+    
   </div>
   <div class="jour samedi">
     <div class="nom_jour">Samedi</div>
-    __SAMEDI__
+    
   </div>
   <div class="jour dimanche">
     <div class="nom_jour">Dimanche</div>
-    __DIMANCHE__
+    
   </div>
 </div>
 

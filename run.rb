@@ -11,6 +11,8 @@ if defined?(Semaine)
   puts "Le fichier #{semaine.data_path} n'existe pas, la semaine sera vide." unless semaine.data_file_exist?
 
   semaine.build
+  # Ouvrir, la première fois :
+  # semaine.open
 
 else
   puts "La classe Semaine n'est pas défini"

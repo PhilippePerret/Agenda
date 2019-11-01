@@ -14,9 +14,12 @@ class Semaine
 
   def body
     gabarit = File.read(File.join(ASSETS_FOLDER,'gabarit.html'))
-
+    gabarit.sub!(/__BLOCK_INFOS__/, block_infos)
     gabarit.sub!(/__COLONNE_HEURES__/, colonne_heures)
-    gabarit.sub!(/__LUNDI__/, building_days['lundi'])
+    Semaine::DAYS.each do |k, v|
+      gabarit.sub!(/__#{k.upcase}__/, building_days[k])
+    end
+    return gabarit
   end
 
   # Tous les jours construits
@@ -24,7 +27,9 @@ class Semaine
   def building_days
     @building_days || begin
       h = {}
-      h['lundi'] = build_day('lundi')
+      Semaine::DAYS.each do |k, v|
+        h.merge!(k => build_day(k))
+      end
       h
     end
   end
@@ -32,6 +37,7 @@ class Semaine
   # Construction du jour +jour+
   def build_day jour
     djour = data[jour]
+    return '' if djour.nil?
     str = ""
     data[jour].each do |heure, donnees|
       travail = Semaine::Jour::Travail.new(heure, donnees)
@@ -46,10 +52,11 @@ class Semaine
   def colonne_heures
     @colonne_heures ||= begin
       str = ''
-      10.times do |i|
+      16.times do |i|
         top = (i * 60) + Semaine::TOP_HOUR
         heure = Semaine.first_hour + i
         str << "<div class='heure' style='top:#{top}px;'><span class='heure'>#{(heure*60).to_hour}</span></div>"
+        str << "<div class='demi-heure' style='top:#{top+30}px;'></div>"
       end
       str
     end
@@ -62,7 +69,9 @@ class Semaine
     <meta charset="utf-8">
     <title>Agenda semaine #{week_number}</title>
     <style type="text/css">
-    #{File.read(File.join(ASSETS_FOLDER,'gabarit.css'))}
+    #{File.read(File.join(ASSETS_FOLDER,'gabarit.css')).gsub(/\n/,'')}
+    /* Valeurs propres à la configuration */
+    .semaine .jour {height: #{(24 - (Semaine::first_hour)) * 60}px;}
     </style>
   </head>
   <body>

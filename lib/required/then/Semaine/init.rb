@@ -7,6 +7,10 @@ class Semaine
     @week_number = wnumber
   end
 
+  def open
+    `open "#{week_path}"`
+  end
+
   def data
     @data ||= begin
       if exists?

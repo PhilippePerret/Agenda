@@ -1,7 +1,19 @@
 class Semaine
 
+  DAYS = {
+    'lundi'     => {small:'lun'},
+    'mardi'     => {small:'mar'},
+    'mercredi'  => {small:'mer'},
+    'jeudi'     => {small:'jeu'},
+    'vendredi'  => {small:'ven'},
+    'samedi'    => {small:'sam'},
+    'dimanche'  => {small:'dim'}
+  }
+
   # Le top de la première heure
-  TOP_HOUR = 40
+  TOP_HOUR = 100
+
+
 
   class << self
 

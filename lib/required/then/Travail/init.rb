@@ -32,17 +32,25 @@ class Semaine
         HTML
       end
 
+
       # Hauteur du div en fonction du temps, en pixels (sans unité)
       def top
         @top ||= begin
-          real_start_time - (6*60)
+          rel_start_time + Semaine::TOP_HOUR
         end
+      end
+
+      # Temps relatif par rapport au début de la journée
+      # Par exemple, si le début de la journée est défini à 7:00,
+      # 8:00 aura 60 (1 heure) comme temps de départ relatif
+      def rel_start_time
+        @rel_start_time ||= real_start_time - Semaine::first_hour * 60
       end
 
       # Hauteur en fonction de la durée, en pixels (sans unité)
       def height
         @height ||= begin
-          duree
+          duree - 8 # 8 pour le padding vertical
         end
       end
 
