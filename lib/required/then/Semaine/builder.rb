@@ -22,7 +22,7 @@ class Semaine
     end
     @body = gabarit
   end
-  
+
   def body
     return @body
   end
@@ -86,6 +86,7 @@ class Semaine
     <script type="text/javascript">
       const WEEK_START_TIME = #{start_time_millieme};
       const WEEK_END_TIME = #{end_time_millieme};
+      const FIRST_DAY_HOUR = #{Semaine.first_hour};
       const TRIGGERS = #{code_triggers};
       #{File.read(File.join(ASSETS_FOLDER,'gabarit.js'))}
     </script>
@@ -97,6 +98,9 @@ class Semaine
   def footer
     <<-HTML
 
+    <div id="time_cursor">
+      <span class="current_hour">11h32</span>
+    </div>
   </body>
 </html>
 
