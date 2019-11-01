@@ -60,7 +60,7 @@ div.semaine div.jour div.travail {
 }
 div.semaine div#colonne_heures {
   position: relative;
-  z-index: 1;
+  z-index:5;
 }
 div.semaine div#colonne_heures div.heure {
   position: absolute;
@@ -109,6 +109,8 @@ div.semaine div.left-column {
 }
 
 
+
+
 /*
   Le bloc contenant les informations sur la semaine courante
   */
@@ -117,13 +119,18 @@ div.semaine div.left-column {
   top:4px;
   padding:1em;
 }
-/* L'indication du numéro de la semaine */
 .semaine .left-column .semaine-infos {
 }
+/* L'indication du numéro de la semaine */
 .semaine .left-column .semaine-infos .semaine-number {
   font-size: 1.1em;
   font-weight: bold;
   font-variant: small-caps;
+  margin-bottom:0.3em;
+}
+/* Lien pour ouvrir le fichier de données */
+.semaine .left-column .semaine-infos .semaine-open {
+  text-align:center;
   margin-bottom:0.6em;
 }
 

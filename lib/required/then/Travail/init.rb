@@ -93,7 +93,7 @@ class Semaine
         @f_objet ||= objet ? " (#{objet})" : ""
       end
       def couleur
-        @couleur ||= data['categorie'] || 'palegrey'
+        @couleur ||= data['categorie'] || 'whitesmoke'
       end
     end #/Travail
   end #/Jour

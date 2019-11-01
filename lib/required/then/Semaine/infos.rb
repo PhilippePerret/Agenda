@@ -17,7 +17,7 @@ class Semaine
         <span class="arrow-other-week">#{next_week_arrow}</span>
       </div>
       <div class="semaine-open">
-        <a href="atm:open?url=file://#{data_path}">Ouvrir</a>
+        <a href="atm:open?url=file://#{data_path}">ouvrir</a>
       </div>
       <div class="semaine-from">
         <div class="from-jour"><span class="label">du </span><span>#{f_from_jour}</span></div>

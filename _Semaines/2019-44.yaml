@@ -13,6 +13,7 @@
   programmation: &programmation whitesmoke
 
   # Définition des rubriques
+  icare: &icare "Atelier Icare"
 
   lundi:
     8h00:
@@ -57,3 +58,12 @@
       faire: Continuer le travail sur Agenda
       duree: 60
       categorie: *programmation
+
+  samedi:
+    11h00:
+      faire: Corriger les problèmes de documents QDD absents
+      duree: 60
+      rubrique: *icare
+    12h00:
+      faire: Surveiller l'arrivée du postier (identité numérique)
+      duree: 90
