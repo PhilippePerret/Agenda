@@ -1,5 +1,6 @@
 require 'yaml'
 require 'Date'
+require 'json'
 
 APPFOLDER = File.expand_path(File.dirname(File.dirname(__FILE__)))
 puts APPFOLDER

@@ -85,8 +85,10 @@ div.semaine div#colonne_heures div.demi-heure span.demi-heure {
 
 
 div.semaine div.jour div.travail div.time {
+  position:absolute;
   font-size: 0.75em;
-  text-align: right;
+  bottom:0;
+  right:4px;
 }
 
 div.semaine div.left-column {

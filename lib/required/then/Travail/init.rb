@@ -10,6 +10,14 @@ class Semaine
         define_times(heure_str)
       end
 
+      # Les données à retourner pour le trigger javascript
+      def trigger_data
+        @trigger_data ||= {
+          time:    abs_start_time,
+          message: action,
+          categorie: categorie
+        }
+      end
       def define_times hstr
         @start_time = hstr
         @start_hour, @start_minute = hstr.split('h')
@@ -47,6 +55,13 @@ class Semaine
         @rel_start_time ||= real_start_time - Semaine::first_hour * 60
       end
 
+      # Le timestamp absolu du travail, en fonction du jour
+      def abs_start_time
+        @abs_start_time ||= begin
+          semaine.start_time_millieme + (indice_jour * 3600 * 24 * 1000) + (real_start_time * 60 * 1000)
+        end
+      end
+
       # Hauteur en fonction de la durée, en pixels (sans unité)
       def height
         @height ||= begin
@@ -59,6 +74,15 @@ class Semaine
       end
       def action
         @action ||= data['faire']
+      end
+      def categorie
+        @categorie ||= data['categorie']
+      end
+      def semaine
+        @semaine ||= data[:semaine]
+      end
+      def indice_jour
+        @indice_jour ||= data[:indice_jour] - 1
       end
       def objet
         @objet ||= data['objet']

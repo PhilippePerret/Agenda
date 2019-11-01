@@ -52,7 +52,6 @@ class Semaine
   end
 
 
-
   # Méthodes de calcul
   def from_jour
     @from_jour ||= Date.ordinal(year, week_first_day_number)
@@ -60,6 +59,18 @@ class Semaine
 
   def to_jour
     @to_jour ||= Date.ordinal(year, 6 + week_first_day_number)
+  end
+
+  # Timestamp du départ de la semaine, en millième de secondes
+  # (pour javascript)
+  def start_time_millieme
+    @start_time_millieme ||= from_jour.to_time.to_i * 1000
+  end
+  def end_time_millieme
+    @end_time_millieme ||= begin
+      first_jour_next_week = Date.ordinal(year, 7 + week_first_day_number)
+      first_jour_next_week.to_time.to_i * 1000
+    end
   end
 
   # Premier jour de la semaine, en nombre

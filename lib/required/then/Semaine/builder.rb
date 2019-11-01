@@ -9,17 +9,22 @@ class Semaine
 
   # Retourne le code complet du fichier
   def full_code
+    build_body
     header + body + footer
   end
 
-  def body
+  def build_body
     gabarit = File.read(File.join(ASSETS_FOLDER,'gabarit.html'))
     gabarit.sub!(/__BLOCK_INFOS__/, block_infos)
     gabarit.sub!(/__COLONNE_HEURES__/, colonne_heures)
     Semaine::DAYS.each do |k, v|
       gabarit.sub!(/__#{k.upcase}__/, building_days[k])
     end
-    return gabarit
+    @body = gabarit
+  end
+  
+  def body
+    return @body
   end
 
   # Tous les jours construits
@@ -40,8 +45,13 @@ class Semaine
     return '' if djour.nil?
     str = ""
     data[jour].each do |heure, donnees|
+      donnees.merge!({
+        semaine: self,
+        indice_jour: Semaine::DAYS[jour][:indice]
+      })
       travail = Semaine::Jour::Travail.new(heure, donnees)
       str << travail.build
+      add_trigger(travail.trigger_data)
     end
     str
   end
@@ -73,6 +83,12 @@ class Semaine
     /* Valeurs propres à la configuration */
     .semaine .jour {height: #{(24 - (Semaine::first_hour)) * 60}px;}
     </style>
+    <script type="text/javascript">
+      const WEEK_START_TIME = #{start_time_millieme};
+      const WEEK_END_TIME = #{end_time_millieme};
+      const TRIGGERS = #{code_triggers};
+      #{File.read(File.join(ASSETS_FOLDER,'gabarit.js'))}
+    </script>
   </head>
   <body>
     HTML

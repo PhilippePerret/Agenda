@@ -4,10 +4,100 @@
     <meta charset="utf-8">
     <title>Agenda semaine 43</title>
     <style type="text/css">
-    body {  font-size: 1em;  margin:0;  padding:0;}.label {  color: #777777;}.discret {  color:#BABADA!important;}a {  text-decoration:none;  color:inherit;}div.semaine {  display: grid;  /* grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%; */  grid-template-columns: 16% 12% 12% 12% 12% 12% 12% 12%;  grid-template-rows: 100 40 40 40 40 40 40 40 40;  border: 2px solid black;}div.semaine div.jour {  border-width: 0 1px;  border-style: solid;  border-color: grey;  position: relative;  z-index:20;}div.semaine div.jour div.nom_jour {  font-weight: bold;  font-family: "Avenir Next";  font-size: 1.1em;  text-align: center;}div.semaine div.jour div.travail {  border-width: 1px 0;  border-color: grey;  border-style: solid;  position: absolute;  left: 0;  padding: 4px 8px;  z-index:20;}div.semaine div#colonne_heures {  position: relative;  z-index: 10;}div.semaine div#colonne_heures div.heure {  position: absolute;  border-bottom: 1px solid grey;  width: 4000px;  text-align: left;  margin-left: 214px;}div.semaine div#colonne_heures div.heure span.heure {  position: absolute;  left: -56px;  top: -8px;  text-align: right;  width: 50px;}div.semaine div#colonne_heures div.demi-heure {  position: absolute;  border-bottom: 1px solid #CCCCCC;  width: 4000px;  text-align: left;  margin-left: 224px;}div.semaine div#colonne_heures div.demi-heure span.demi-heure {  position: absolute;  left: -56px;  top: -8px;  text-align: right;  width: 50px;}div.semaine div.jour div.travail div.time {  font-size: 0.75em;  text-align: right;}div.semaine div.left-column {  grid-column:1/2;  position:relative;  background-color:#dfdfdf;  z-index:1;}/*  Le bloc contenant les informations sur la semaine courante  */.semaine .left-column .semaine-infos {  position:absolute;  top:4px;  padding:1em;}/* L'indication du numéro de la semaine */.semaine .left-column .semaine-infos {}.semaine .left-column .semaine-infos .semaine-number {  font-size: 1.1em;  font-weight: bold;  font-variant: small-caps;}.semaine .left-column .semaine-infos .semaine-number .arrow-other-week {  font-size:0.8em;  margin: 0 8px;}div.semaine div.lundi {  grid-column:2/3;}div.semaine div.mardi {  grid-column:3/4;}div.semaine div.mercredi {  grid-column:4/5;}div.semaine div.jeudi {  grid-column:5/6;}div.semaine div.vendredi {  grid-column:6/7;}div.semaine div.samedi {  grid-column:7/8;}div.semaine div.dimanche {  grid-column:8;}
+    body {  font-size: 1em;  margin:0;  padding:0;}.label {  color: #777777;}.discret {  color:#BABADA!important;}a {  text-decoration:none;  color:inherit;}div.semaine {  display: grid;  /* grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%; */  grid-template-columns: 16% 12% 12% 12% 12% 12% 12% 12%;  grid-template-rows: 100 40 40 40 40 40 40 40 40;  border: 2px solid black;}div.semaine div.jour {  border-width: 0 1px;  border-style: solid;  border-color: grey;  position: relative;  z-index:20;}div.semaine div.jour div.nom_jour {  font-weight: bold;  font-family: "Avenir Next";  font-size: 1.1em;  text-align: center;}div.semaine div.jour div.travail {  border-width: 1px 0;  border-color: grey;  border-style: solid;  position: absolute;  left: 0;  padding: 4px 8px;  z-index:20;}div.semaine div#colonne_heures {  position: relative;  z-index: 10;}div.semaine div#colonne_heures div.heure {  position: absolute;  border-bottom: 1px solid grey;  width: 4000px;  text-align: left;  margin-left: 214px;}div.semaine div#colonne_heures div.heure span.heure {  position: absolute;  left: -56px;  top: -8px;  text-align: right;  width: 50px;}div.semaine div#colonne_heures div.demi-heure {  position: absolute;  border-bottom: 1px solid #CCCCCC;  width: 4000px;  text-align: left;  margin-left: 224px;}div.semaine div#colonne_heures div.demi-heure span.demi-heure {  position: absolute;  left: -56px;  top: -8px;  text-align: right;  width: 50px;}div.semaine div.jour div.travail div.time {  position:absolute;  font-size: 0.75em;  bottom:0;  right:4px;}div.semaine div.left-column {  grid-column:1/2;  position:relative;  background-color:#dfdfdf;  z-index:1;}/*  Le bloc contenant les informations sur la semaine courante  */.semaine .left-column .semaine-infos {  position:absolute;  top:4px;  padding:1em;}/* L'indication du numéro de la semaine */.semaine .left-column .semaine-infos {}.semaine .left-column .semaine-infos .semaine-number {  font-size: 1.1em;  font-weight: bold;  font-variant: small-caps;  margin-bottom:0.6em;}.semaine .left-column .semaine-infos .semaine-number .arrow-other-week {  font-size:0.8em;  margin: 0 8px;}div.semaine div.lundi {  grid-column:2/3;}div.semaine div.mardi {  grid-column:3/4;}div.semaine div.mercredi {  grid-column:4/5;}div.semaine div.jeudi {  grid-column:5/6;}div.semaine div.vendredi {  grid-column:6/7;}div.semaine div.samedi {  grid-column:7/8;}div.semaine div.dimanche {  grid-column:8;}
     /* Valeurs propres à la configuration */
     .semaine .jour {height: 1020px;}
     </style>
+    <script type="text/javascript">
+      const WEEK_START_TIME = 1571608800000;
+      const WEEK_END_TIME = 1572217200000;
+      const TRIGGERS = {"1571637600000":{"time":1571637600000,"message":"Définir le travail de la semaine","categorie":"palegreen"},"1571641200000":{"time":1571641200000,"message":"Travail sur l'article de blog","categorie":"palegoldenrod"},"1571655600000":{"time":1571655600000,"message":"Travail sur roman courant","categorie":"paleturquoise"},"1571724000000":{"time":1571724000000,"message":"Travailler sur le programme FILM ANALYZOR ou poursuivre l'analyse","categorie":"palevioletred"},"1571727600000":{"time":1571727600000,"message":"Rédaction de l'article de blog","categorie":"palegoldenrod"},"1571733000000":{"time":1571733000000,"message":"Commentaires document Icare","categorie":"paleturquoise"}};
+      /**
+ * Méthode qui vérifie si un nouveau travail doit être annoncé
+ */
+let now = new Date().getTime();
+// console.log("type de now (%d) : ", now, typeof now)
+// now = parseInt(now,10);
+// console.log("type de now (%d) après parseInt : ", now, typeof now);
+// now = 1000 * now;
+// console.log("type de now (%d) après * 1000 : ", now, typeof now);
+const NOW = now;
+console.log("TEMPS COURANT : %d", NOW);
+
+class Travail {
+
+  constructor(donnees){
+    this.data = donnees;
+    this.prepare();
+  }
+
+  prepare(){
+    let my = this
+    console.log("-> prepare « %s »", this.message);
+    my.timer = setTimeout(my.show.bind(my), my.laps)
+    console.log("<- fin de prepare « %s »", this.message);
+  }
+
+  show(){
+    console.log("-> show « %s »", this.message);
+    new Notification(this.message)
+    this.kill_timer()
+  }
+
+  abort(){
+    this.kill_timer()
+    console.log("Le travail « »%s » a été aborté.", this.message)
+  }
+
+  kill_timer(){
+    clearTimeout(this.timer)
+    delete this.timer
+  }
+
+  get time()    { return this.data.time }
+  get laps()    { return this.data.laps }
+  get message() { return this.data.message}
+}
+
+const CURRENT_WORKS = [] // calculés en fonction du temps courant
+const start_app = function(){
+  /**
+    On va étudier les triggers à lancer
+    La constante TRIGGERS contient un hash avec en clé le timestamp absolu
+    (en millième de secondes) des travaux à exécuter.
+    On passe en revue cette liste pour savoir si des travaux sont à exécuter
+    dans la semaine affichée. Les temps de la semaine affichée sont définies
+    par les constantes WEEK_START_TIME et WEEK_END_TIME
+  **/
+  for ( var t in TRIGGERS ) {
+    t = parseInt(t)
+    console.log("Comparaison de %d >= %d et %d < %d", t, NOW, t, WEEK_END_TIME);
+    if ( t >= NOW && t < WEEK_END_TIME ) {
+      var data = TRIGGERS[t]
+      data.time = t
+      Object.assign(data, {laps: t - NOW})
+      // On ajoute ce nouveau travail (en le déclenchant)
+      CURRENT_WORKS.push(new Travail(data))
+    }
+  }
+  console.log(CURRENT_WORKS);
+
+}
+
+Notification.requestPermission().then(function(result) {
+  console.log(result);
+  start_app();
+});
+
+window.addEventListener('beforeunload', ()=>{
+  // Avant de quitter la page, il faut arrêter tous les timers
+  for(travail of CURRENT_WORKS){
+    travail.abort()
+  }
+  console.log("J'ai fait ça avant de quitter la page")
+})
+
+    </script>
   </head>
   <body>
 
@@ -20,7 +110,7 @@
       <div class="semaine-number">
         <span class="arrow-other-week"><a href='Semaine-2019-42.html'>◀︎</a></span>
         <span>semaine </span><span>43</span>
-        <span class="arrow-other-week"><span class="discret">▶︎</span></span>
+        <span class="arrow-other-week"><a href='Semaine-2019-44.html'>▶︎</a></span>
       </div>
       <div id="" class="semaine-from">
         <div class="from-jour"><span class="label">du </span><span>21 10 2019</span></div>
