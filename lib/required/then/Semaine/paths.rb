@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Semaine
 
   def data_file_exist?

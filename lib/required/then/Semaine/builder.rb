@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Semaine
 
   # Méthode de construction du fichier HTML de la semaine
@@ -78,14 +80,16 @@ class Semaine
     end
   end
   def header
+    code_css = File.read(File.join(ASSETS_FOLDER,'gabarit.css')).force_encoding('utf-8')
+    code_css.gsub!(/\n/,'')
+    code_js = File.read(File.join(ASSETS_FOLDER,'gabarit.js')).force_encoding('utf-8')
     <<-HTML
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Agenda semaine #{week_number}</title>
     <style type="text/css">
-    #{File.read(File.join(ASSETS_FOLDER,'gabarit.css')).gsub(/\n/,'')}
+    #{code_css}
     /* Valeurs propres à la configuration */
     .semaine .jour {height: #{(24 - (Semaine::first_hour)) * 60}px;}
     </style>
@@ -94,7 +98,7 @@ class Semaine
       const WEEK_END_TIME = #{end_time_millieme};
       const FIRST_DAY_HOUR = #{Semaine.first_hour};
       const TRIGGERS = #{code_triggers};
-      #{File.read(File.join(ASSETS_FOLDER,'gabarit.js'))}
+      #{code_js}
     </script>
   </head>
   <body>

@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 require 'yaml'
 require 'Date'
 require 'json'

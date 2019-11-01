@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 =begin
   Méthodes de la semaine (du constructeur) qui permettent de définir
   les déclencheurs d'alerte des travaux

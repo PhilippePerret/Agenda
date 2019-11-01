@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Semaine
 
   attr_reader :year, :week_number

@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 =begin
   Méthodes propres pour les infos de la semaine
   (numéro, date de début et date de fin)
@@ -14,7 +16,10 @@ class Semaine
         <span>semaine </span><span>#{week_number}</span>
         <span class="arrow-other-week">#{next_week_arrow}</span>
       </div>
-      <div id="" class="semaine-from">
+      <div class="semaine-open">
+        <a href="atm:open?url=file://#{data_path}">Ouvrir</a>
+      </div>
+      <div class="semaine-from">
         <div class="from-jour"><span class="label">du </span><span>#{f_from_jour}</span></div>
         <div class="to-jour"><span class="label">au </span><span>#{f_to_jour}</span></div>
       </div>
