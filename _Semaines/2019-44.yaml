@@ -4,7 +4,8 @@
   film_analysed:    &film_analyzed « TITRE FILM ANALYSÉ »
   page_narration:   &page_narration « TITRE DE LA PAGE NARRATION OU ID »
 
-  # Définition des couleurs en fonction de la catégorie
+  # Définition des couleurs en fonction de la catégorie (pour la propriété
+  # 'categorie')
   cat_divers: &cat_divers palegreen
   icare_editions: &icare_editions palegoldenrod
   roman: &roman paleturquoise

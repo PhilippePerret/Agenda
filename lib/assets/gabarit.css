@@ -33,6 +33,7 @@ div.semaine div.jour {
 }
 div.semaine div.jour.exergue {
   background-color: rgba(31, 244, 31, 0.24);
+  border:3px solid green;
 }
 
 div.semaine div.jour div.nom_jour {
