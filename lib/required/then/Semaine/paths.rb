@@ -9,7 +9,10 @@ class Semaine
   alias :exists? :exist?
 
   def week_path
-    @week_path ||= File.join(AGENDA_FOLDER,"Semaine-#{affixe}.html")
+    @week_path ||= File.join(AGENDA_FOLDER,week_filename)
+  end
+  def week_filename
+    @week_filename ||= "Semaine-#{affixe}.html"
   end
   def data_path
     @data_path ||= File.join(SEMAINE_FOLDER,"#{affixe}.yaml")

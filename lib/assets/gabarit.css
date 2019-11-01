@@ -8,6 +8,15 @@ body {
   color: #777777;
 }
 
+.discret {
+  color:#BABADA!important;
+}
+
+a {
+  text-decoration:none;
+  color:inherit;
+}
+
 div.semaine {
   display: grid;
   /* grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%; */
@@ -86,7 +95,11 @@ div.semaine div.left-column {
   background-color:#dfdfdf;
   z-index:1;
 }
-/* Le bloc contenant les informations sur la semaine courante */
+
+
+/*
+  Le bloc contenant les informations sur la semaine courante
+  */
 .semaine .left-column .semaine-infos {
   position:absolute;
   top:4px;
@@ -99,6 +112,12 @@ div.semaine div.left-column {
   font-size: 1.1em;
   font-weight: bold;
   font-variant: small-caps;
+  margin-bottom:0.6em;
+}
+
+.semaine .left-column .semaine-infos .semaine-number .arrow-other-week {
+  font-size:0.8em;
+  margin: 0 8px;
 }
 
 div.semaine div.lundi {

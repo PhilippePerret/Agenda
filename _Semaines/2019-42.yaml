@@ -1,0 +1,48 @@
+---
+  roman_courant:    &roman_courant « TITRE ROMAN COURANT »
+  article_courant:  &article_courant « TITRE ARTICLE COURANT »
+  film_analysed:    &film_analyzed « TITRE FILM ANALYSÉ »
+  page_narration:   &page_narration « TITRE DE LA PAGE NARRATION OU ID »
+
+  # Définition des couleurs en fonction de la catégorie
+  cat_divers: &cat_divers palegreen
+  icare_editions: &icare_editions palegoldenrod
+  roman: &roman paleturquoise
+  analyse_film: &analyse_film palevioletred
+
+  lundi:
+    8h00:
+      faire: Définir le travail de la semaine
+      duree: 60
+      categorie: *cat_divers
+
+    9h00:
+      faire: Travail sur l'article de blog
+      objet: *article_courant
+      duree: 90
+      categorie: *icare_editions
+
+
+    13h00:
+      faire: Travail sur roman courant
+      objet: *roman_courant
+      duree: 180
+      categorie: *roman
+
+  mardi:
+    8h00:
+      faire: Travailler sur le programme FILM ANALYZOR ou poursuivre l'analyse
+      objet: *film_analyzed
+      duree: 60
+      categorie: *analyse_film
+
+    9h00:
+      faire: Rédaction de l'article de blog
+      objet: *article_courant
+      duree: 90
+      categorie: *icare_editions
+
+    10h30:
+      faire: Commentaires document Icare
+      duree: 90
+      categorie: *roman

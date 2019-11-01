@@ -5,12 +5,15 @@ require_relative 'lib/_required'
 
 if defined?(Semaine)
 
-  # On doit prendre le fichier voulu
-  semaine = Semaine.new(2019,43)
+  [42, 43].each do |week_num|
+    # On doit prendre le fichier voulu
+    semaine = Semaine.new(2019,week_num)
 
-  puts "Le fichier #{semaine.data_path} n'existe pas, la semaine sera vide." unless semaine.data_file_exist?
+    puts "Le fichier #{semaine.data_path} n'existe pas, la semaine sera vide." unless semaine.data_file_exist?
 
-  semaine.build
+    semaine.build
+  end
+  
   # Ouvrir, la première fois :
   # semaine.open
 
