@@ -35,6 +35,12 @@ class Semaine
   def f_to_jour
     @f_to_jour ||= to_jour.strftime("%d %m %Y")
   end
+  def f_from_jour_short
+    @f_from_jour_short ||= from_jour.strftime("%d %m")
+  end
+  def f_to_jour_short
+    @f_to_jour_short ||= to_jour.strftime("%d %m")
+  end
 
   def prev_week_arrow
     @prev_week_arrow ||= begin

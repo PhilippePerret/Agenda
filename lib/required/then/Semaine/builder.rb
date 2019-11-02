@@ -88,6 +88,7 @@ class Semaine
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <title>Agenda du #{f_from_jour_short} au #{f_to_jour_short}</title>
     <style type="text/css">
     #{code_css}
     /* Valeurs propres à la configuration */

@@ -14,6 +14,7 @@
 
   # Définition des rubriques
   icare: &icare "Atelier Icare"
+  scrivener: &scrivener "Tutos Scrivener"
 
   lundi:
     8h00:
