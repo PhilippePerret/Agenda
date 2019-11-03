@@ -1,3 +1,4 @@
+* Pouvoir ne pas préciser de durée, ce qui signifie que le travail dure jusqu'au travail suivant.
 * CB pour n'afficher que le jour courant
 * CB(s) pour n'afficher qu'une rubrique/catégorie
 

@@ -5,7 +5,7 @@ require_relative 'lib/_required'
 
 if defined?(Semaine)
 
-  [42, 43, 44].each do |week_num|
+  [42, 43, 44, 45].each do |week_num|
     # On doit prendre le fichier voulu
     semaine = Semaine.new(2019, week_num)
 

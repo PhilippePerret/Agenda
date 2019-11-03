@@ -1,5 +1,5 @@
 body {
-  font-size: 1em;
+  font-size: 0.81em;
   margin:0;
   padding:0;
 }
@@ -15,6 +15,7 @@ body {
 a {
   text-decoration:none;
   color:inherit;
+  cursor:pointer;
 }
 
 div.semaine {
@@ -56,6 +57,7 @@ div.semaine div.jour div.travail {
   position: absolute;
   left: 0;
   padding: 4px 8px;
+  width:calc(100% - 16px);
   z-index:100;
 }
 div.semaine div#colonne_heures {

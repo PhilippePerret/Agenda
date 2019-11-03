@@ -75,7 +75,7 @@ class Semaine
         @duree ||= data['duree'].to_i
       end
       def action
-        @action ||= data['faire']
+        @action ||= semaine.remplace_variable_in(data['faire'])
       end
       def categorie
         @categorie ||= data['categorie']
@@ -93,7 +93,17 @@ class Semaine
         @f_objet ||= objet ? " (#{objet})" : ""
       end
       def couleur
-        @couleur ||= data['categorie'] || 'whitesmoke'
+        @couleur ||= (rubrique && rubrique.couleur) || 'whitesmoke'
+      end
+      def rubrique
+        @rubrique ||= begin
+          if data['rubrique']
+            semaine.rubriques[data['rubrique']]
+          end
+        end
+      end
+      def categorie
+        @categorie ||= data['categorie'] || (rubrique && rubrique.categorie)
       end
     end #/Travail
   end #/Jour
