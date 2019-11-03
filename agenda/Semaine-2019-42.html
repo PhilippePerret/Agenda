@@ -72,8 +72,8 @@ const start_app = function(){
     semaine affichée
   **/
   if (IS_CURRENT_WEEK){
-    let today_indice = new Date().getUTCDay() - 1;
-    let today_name = ['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'][today_indice];
+    let today_indice = new Date().getUTCDay();
+    let today_name = ['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'][today_indice];
     let colonne_jour = document.querySelector(`.jour.${today_name}`);
     colonne_jour.classList.add('exergue');
   } else {

@@ -54,6 +54,10 @@
       duree: 90
       categorie: *roman
 
+  mercredi:
+    10h00:
+      faire: Commencer à travailler sur quelque chose.
+
   vendredi:
     11h30:
       faire: Continuer le travail sur Agenda

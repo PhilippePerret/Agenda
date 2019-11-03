@@ -12,7 +12,7 @@
       const WEEK_START_TIME = 1571608800000;
       const WEEK_END_TIME = 1572217200000;
       const FIRST_DAY_HOUR = 7;
-      const TRIGGERS = {"1571551200000":{"time":1571551200000,"message":"Définir le travail de la semaine","categorie":"palegreen"},"1571554800000":{"time":1571554800000,"message":"Travail sur l'article de blog","categorie":"palegoldenrod"},"1571569200000":{"time":1571569200000,"message":"Travail sur roman courant","categorie":"paleturquoise"},"1571637600000":{"time":1571637600000,"message":"Travailler sur le programme FILM ANALYZOR ou poursuivre l'analyse","categorie":"palevioletred"},"1571641200000":{"time":1571641200000,"message":"Rédaction de l'article de blog","categorie":"palegoldenrod"},"1571646600000":{"time":1571646600000,"message":"Commentaires document Icare","categorie":"paleturquoise"}};
+      const TRIGGERS = {"1571551200000":{"time":1571551200000,"message":"Définir le travail de la semaine 43","categorie":"palegreen"},"1571554800000":{"time":1571554800000,"message":"Travail sur l'article de blog","categorie":"palegoldenrod"},"1571569200000":{"time":1571569200000,"message":"Travail sur roman courant","categorie":"paleturquoise"},"1571637600000":{"time":1571637600000,"message":"Travailler sur le programme FILM ANALYZOR ou poursuivre l'analyse","categorie":"palevioletred"},"1571641200000":{"time":1571641200000,"message":"Rédaction de l'article de blog","categorie":"palegoldenrod"},"1571646600000":{"time":1571646600000,"message":"Commentaires document Icare","categorie":"paleturquoise"}};
       /**
  * Méthode qui vérifie si un nouveau travail doit être annoncé
  */
@@ -72,8 +72,8 @@ const start_app = function(){
     semaine affichée
   **/
   if (IS_CURRENT_WEEK){
-    let today_indice = new Date().getUTCDay() - 1;
-    let today_name = ['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'][today_indice];
+    let today_indice = new Date().getUTCDay();
+    let today_name = ['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'][today_indice];
     let colonne_jour = document.querySelector(`.jour.${today_name}`);
     colonne_jour.classList.add('exergue');
   } else {
@@ -189,7 +189,7 @@ window.addEventListener('beforeunload', ()=>{
     <div class="nom_jour">Lundi</div>
     <div class='date_jour'>21 10 2019</div><div class="travail" style="top:160px;height:52px;background-color:palegreen;">
   <div class="faire">
-    Définir le travail de la semaine
+    Définir le travail de la semaine 43
   </div>
   <div class="time">8h00 - 9h00</div>
 </div>

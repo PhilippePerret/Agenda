@@ -12,7 +12,7 @@
       const WEEK_START_TIME = 1572217200000;
       const WEEK_END_TIME = 1572822000000;
       const FIRST_DAY_HOUR = 7;
-      const TRIGGERS = {"1572159600000":{"time":1572159600000,"message":"Définir le travail de la semaine","categorie":"palegreen"},"1572163200000":{"time":1572163200000,"message":"Travail sur l'article de blog","categorie":"palegoldenrod"},"1572177600000":{"time":1572177600000,"message":"Travail sur roman courant","categorie":"paleturquoise"},"1572246000000":{"time":1572246000000,"message":"Travailler sur le programme FILM ANALYZOR ou poursuivre l'analyse","categorie":"palevioletred"},"1572249600000":{"time":1572249600000,"message":"Rédaction de l'article de blog","categorie":"palegoldenrod"},"1572255000000":{"time":1572255000000,"message":"Commentaires document Icare","categorie":"paleturquoise"},"1572517800000":{"time":1572517800000,"message":"Continuer le travail sur Agenda","categorie":"whitesmoke"},"1572602400000":{"time":1572602400000,"message":"Corriger les problèmes de documents QDD absents","categorie":null},"1572606000000":{"time":1572606000000,"message":"Surveiller l'arrivée du postier (identité numérique)","categorie":null}};
+      const TRIGGERS = {"1572159600000":{"time":1572159600000,"message":"Définir le travail de la semaine","categorie":"palegreen"},"1572163200000":{"time":1572163200000,"message":"Travail sur l'article de blog","categorie":"palegoldenrod"},"1572177600000":{"time":1572177600000,"message":"Travail sur roman courant","categorie":"paleturquoise"},"1572246000000":{"time":1572246000000,"message":"Travailler sur le programme FILM ANALYZOR ou poursuivre l'analyse","categorie":"palevioletred"},"1572249600000":{"time":1572249600000,"message":"Rédaction de l'article de blog","categorie":"palegoldenrod"},"1572255000000":{"time":1572255000000,"message":"Commentaires document Icare","categorie":"paleturquoise"},"1572339600000":{"time":1572339600000,"message":"Commencer à travailler sur quelque chose.","categorie":null},"1572517800000":{"time":1572517800000,"message":"Continuer le travail sur Agenda","categorie":"whitesmoke"},"1572602400000":{"time":1572602400000,"message":"Corriger les problèmes de documents QDD absents","categorie":null},"1572606000000":{"time":1572606000000,"message":"Surveiller l'arrivée du postier (identité numérique)","categorie":null}};
       /**
  * Méthode qui vérifie si un nouveau travail doit être annoncé
  */
@@ -72,8 +72,8 @@ const start_app = function(){
     semaine affichée
   **/
   if (IS_CURRENT_WEEK){
-    let today_indice = new Date().getUTCDay() - 1;
-    let today_name = ['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'][today_indice];
+    let today_indice = new Date().getUTCDay();
+    let today_name = ['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'][today_indice];
     let colonne_jour = document.querySelector(`.jour.${today_name}`);
     colonne_jour.classList.add('exergue');
   } else {
@@ -232,7 +232,13 @@ window.addEventListener('beforeunload', ()=>{
   </div>
   <div class="jour mercredi">
     <div class="nom_jour">Mercredi</div>
-    <div class='date_jour'>30 10 2019</div>
+    <div class='date_jour'>30 10 2019</div><div class="travail" style="top:280px;height:-8px;background-color:whitesmoke;">
+  <div class="faire">
+    Commencer à travailler sur quelque chose.
+  </div>
+  <div class="time">10h00 - 10h00</div>
+</div>
+
   </div>
   <div class="jour jeudi">
     <div class="nom_jour">Jeudi</div>

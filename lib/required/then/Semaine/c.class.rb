@@ -25,5 +25,15 @@ class Semaine
       @first_hour ||= 7
     end
 
+
+    # Méthode de classe qui ouvre la semaine courante si elle existe
+    def open_current_if_exists
+      now   = Time.now
+      year  = now.year
+      cweek = Date.today.cweek.to_i
+      semaine = Semaine.new(year,cweek)
+      semaine.open if semaine.exists?
+    end
+
   end #/<< self
 end #/Semaine

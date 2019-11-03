@@ -1,22 +1,24 @@
 #!/usr/bin/env ruby
 # encoding: UTF-8
 
+=begin
+
+  Script pour lancer la journée de travail
+  (il doit être lancé au démarrage)
+
+  - il affiche dans le navigateur par défaut le fichier html de la semaine,
+    le construit le cas échéant
+    Si la semaine n'existe pas, le script s'arrête là.
+  - il lance la surveillance des fichiers de données semaines pour les
+    reconstruire au besoin.
+
+=end
 require_relative 'lib/_required'
 
-if defined?(Semaine)
+# On ouvre le fichier de la semaine courante dans le navigateur
+Semaine.open_current_if_exists
+# TODO
 
-  [42, 43, 44].each do |week_num|
-    # On doit prendre le fichier voulu
-    semaine = Semaine.new(2019, week_num)
 
-    puts "Le fichier #{semaine.data_path} n'existe pas, la semaine sera vide." unless semaine.data_file_exist?
-
-    semaine.build
-  end
-
-  # Ouvrir, la première fois :
-  # semaine.open
-
-else
-  puts "La classe Semaine n'est pas défini"
-end
+# On lance la commande qui va surveiller les fichiers de données des semaines
+# TODO
