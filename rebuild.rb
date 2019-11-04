@@ -5,7 +5,7 @@ require_relative 'lib/_required'
 
 # Pour forcer la reconstruction (quand par exemple on modifie les fichiers
 # gabarit)
-FORCE_REBUILD = true
+FORCE_REBUILD = false
 
 if defined?(Semaine)
 
