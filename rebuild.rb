@@ -5,12 +5,18 @@ require_relative 'lib/_required'
 
 if defined?(Semaine)
 
-  [42, 43, 44, 45].each do |week_num|
-    # On doit prendre le fichier voulu
-    semaine = Semaine.new(2019, week_num)
+  Dir["#{SEMAINES_FOLDER}/*.yaml"].each do |fpath|
 
-    puts "Le fichier #{semaine.data_path} n'existe pas, la semaine sera vide." unless semaine.data_file_exist?
+    year, cweek = File.basename(fpath,File.extname(fpath)).split('-')
 
+    semaine = Semaine.new(year.to_i, cweek.to_i)
+
+    # Si la semaine est à jour, rien à faire, sinon, on la reconstruit
+    # Note : une semaine n'est pas à jour aussi si elle ne contient pas
+    # le lien vers une autre semaine alors qu'elle existe (nouvelle semaine)
+    next if semaine.up_to_date?
+
+    # Sinon, on reconstruit la semaine
     semaine.build
   end
 

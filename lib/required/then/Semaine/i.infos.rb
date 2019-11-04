@@ -44,7 +44,7 @@ class Semaine
 
   def prev_week_arrow
     @prev_week_arrow ||= begin
-      if prev_week.exists?
+      if prev_week.data_exists?
         "<a href='#{prev_week.week_filename}'>◀︎</a>"
       else
         '<span class="discret">◀︎</span>'
@@ -54,7 +54,7 @@ class Semaine
 
   def next_week_arrow
     @next_week_arrow ||= begin
-      if next_week.exists?
+      if next_week.data_exists?
         "<a href='#{next_week.week_filename}'>▶︎</a>"
       else
         '<span class="discret">▶︎</span>'

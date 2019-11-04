@@ -4,7 +4,6 @@ class Semaine
 
   # Méthode de construction du fichier HTML de la semaine
   def build
-
     File.open(week_path,'wb'){|f| f.write full_code}
     puts "Semaine construite avec succès dans #{week_path}."
   end

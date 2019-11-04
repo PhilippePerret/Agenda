@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Agenda du 04 11 au 10 11</title>
+    <style type="text/css">
+    body {  font-size: 0.81em;  margin:0;  padding:0;}.label {  color: #777777;}.discret {  color:#BABADA!important;}a {  text-decoration:none;  color:inherit;  cursor:pointer;}div.semaine {  display: grid;  /* grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%; */  grid-template-columns: 16% 12% 12% 12% 12% 12% 12% 12%;  grid-template-rows: 100 40 40 40 40 40 40 40 40;  border: 2px solid black;}div.semaine div.jour {  border-width: 0 1px;  border-style: solid;  border-color: grey;  position: relative;  z-index:5;}div.semaine div.jour.exergue {  background-color: rgba(31, 244, 31, 0.24);  border:3px solid green;}div.semaine div.jour div.nom_jour {  font-weight: bold;  font-family: "Avenir Next";  font-size: 1.1em;  text-align: center;}.semaine .jour .date_jour {  text-align: center;  font-weight:bold;  font-size:1.1em;}div.semaine div.jour div.travail {  border-width: 1px 0;  border-color: grey;  border-style: solid;  position: absolute;  left: 0;  padding: 4px 8px;  width:calc(100% - 16px);  z-index:100;}div.semaine div#colonne_heures {  position: relative;  z-index:5;}div.semaine div#colonne_heures div.heure {  position: absolute;  border-bottom: 1px solid grey;  width: 4000px;  text-align: left;  margin-left: 214px;}div.semaine div#colonne_heures div.heure span.heure {  position: absolute;  left: -56px;  top: -8px;  text-align: right;  width: 50px;}div.semaine div#colonne_heures div.demi-heure {  position: absolute;  border-bottom: 1px solid #CCCCCC;  width: 4000px;  text-align: left;  margin-left: 224px;}div.semaine div#colonne_heures div.demi-heure span.demi-heure {  position: absolute;  left: -56px;  top: -8px;  text-align: right;  width: 50px;}div.semaine div.jour div.travail div.time {  position:absolute;  font-size: 0.75em;  bottom:0;  right:4px;}div.semaine div.left-column {  grid-column:1/2;  position:relative;  background-color:#dfdfdf;  z-index:1;}/*  Le bloc contenant les informations sur la semaine courante  */.semaine .left-column .semaine-infos {  position:absolute;  top:4px;  padding:1em;}.semaine .left-column .semaine-infos {}/* L'indication du numéro de la semaine */.semaine .left-column .semaine-infos .semaine-number {  font-size: 1.1em;  font-weight: bold;  font-variant: small-caps;  margin-bottom:0.3em;}/* Lien pour ouvrir le fichier de données */.semaine .left-column .semaine-infos .semaine-open {  text-align:center;  margin-bottom:0.6em;}.semaine .left-column .semaine-infos .semaine-number .arrow-other-week {  font-size:0.8em;  margin: 0 8px;}div.semaine div.lundi {  grid-column:2/3;}div.semaine div.mardi {  grid-column:3/4;}div.semaine div.mercredi {  grid-column:4/5;}div.semaine div.jeudi {  grid-column:5/6;}div.semaine div.vendredi {  grid-column:6/7;}div.semaine div.samedi {  grid-column:7/8;}div.semaine div.dimanche {  grid-column:8;}/**  Le curseur de temps  */div#time_cursor {  position:absolute;  color:red;  background-color:red;  text-align:center;  width:100%;  height:2px;  top:20px;  left:216px;  z-index:1000;}div#time_cursor span.boule {  position:absolute;  top:-0.5em;}div#time_cursor span.current_hour {  position:absolute;  left:-46px;  top:-0.4em;  background-color:#dfdfdf;}
+    /* Valeurs propres à la configuration */
+    .semaine .jour {height: 1020px;}
+    </style>
+    <script type="text/javascript">
+      const WEEK_START_TIME = 1572822000000;
+      const WEEK_END_TIME = 1573426800000;
+      const FIRST_DAY_HOUR = 7;
+      const TRIGGERS = {"1572764400000":{"time":1572764400000,"message":"Définir le travail de la semaine","categorie":null},"1572768000000":{"time":1572768000000,"message":"Recherche d'articles de blog","categorie":null},"1572771600000":{"time":1572771600000,"message":"Article blog ARTICLE COURANT 1","categorie":"Écriture"},"1572775200000":{"time":1572775200000,"message":"Outil icarien pour ajouter un paiement.","categorie":"Programmation"},"1572782400000":{"time":1572782400000,"message":"Travail sur roman « « PASSÉ SOUS SILENCE » »","categorie":"Écriture"},"1572795000000":{"time":1572795000000,"message":"Fin de la journée","categorie":null},"1572850800000":{"time":1572850800000,"message":"Travailler sur le programme FILM ANALYZOR","categorie":"programmation"},"1572854400000":{"time":1572854400000,"message":"Articles blog : ARTICLE COURANT 2, ARTICLE COURANT 3","categorie":"Écriture"},"1572859800000":{"time":1572859800000,"message":"Commentaires document Icare","categorie":"script-doctoring"},"1572868800000":{"time":1572868800000,"message":"Travail sur « « PASSÉ SOUS SILENCE » »","categorie":"Écriture"},"1572881400000":{"time":1572881400000,"message":"Fin actuel de la journée","categorie":null},"1572937200000":{"time":1572937200000,"message":"Analyse du film « FILM ANALYSÉ »","categorie":"Analyse"},"1572940800000":{"time":1572940800000,"message":"Articles blog : ARTICLE COURANT 4, ARTICLE COURANT 1","categorie":"Écriture"},"1572944400000":{"time":1572944400000,"message":"Commencer à travailler sur quelque chose.","categorie":null},"1572955200000":{"time":1572955200000,"message":"Écriture de « « PASSÉ SOUS SILENCE » »","categorie":"Écriture"},"1572967800000":{"time":1572967800000,"message":"Fin actuel de la journée","categorie":null},"1573027200000":{"time":1573027200000,"message":"Articles blog : ARTICLE COURANT 2, ARTICLE COURANT 3","categorie":"Écriture"},"1573041600000":{"time":1573041600000,"message":"Écriture de « « PASSÉ SOUS SILENCE » »","categorie":"Écriture"},"1573054200000":{"time":1573054200000,"message":"Fin actuel de la journée","categorie":null},"1573113600000":{"time":1573113600000,"message":"Article blog : «ARTICLE COURANT 4»","categorie":"Écriture"},"1573115400000":{"time":1573115400000,"message":"Finalisation de l'article «ARTICLE COURANT 1».","categorie":"Écriture"},"1573122600000":{"time":1573122600000,"message":"Continuer le travail sur Agenda","categorie":"Programmation"},"1573128000000":{"time":1573128000000,"message":"Écriture de « « PASSÉ SOUS SILENCE » »","categorie":"Écriture"},"1573140600000":{"time":1573140600000,"message":"Fin actuel de la journée","categorie":null},"1573200000000":{"time":1573200000000,"message":"Publication et annonces article blog ARTICLE COURANT 1","categorie":null},"1573207200000":{"time":1573207200000,"message":"Corriger les problèmes de documents QDD absents","categorie":"Programmation"},"1573210800000":{"time":1573210800000,"message":"Surveiller l'arrivée du postier (identité numérique)","categorie":null},"1573214400000":{"time":1573214400000,"message":"Écriture de « « PASSÉ SOUS SILENCE » »","categorie":"Écriture"}};
+      /**
+ * Méthode qui vérifie si un nouveau travail doit être annoncé
+ */
+let now = new Date().getTime();
+// console.log("type de now (%d) : ", now, typeof now)
+// now = parseInt(now,10);
+// console.log("type de now (%d) après parseInt : ", now, typeof now);
+// now = 1000 * now;
+// console.log("type de now (%d) après * 1000 : ", now, typeof now);
+const NOW = now;
+// console.log("TEMPS COURANT : %d", NOW);
+
+class Travail {
+
+  constructor(donnees){
+    this.data = donnees;
+    this.prepare();
+  }
+
+  prepare(){
+    let my = this
+    // console.log("-> prepare « %s »", this.message);
+    my.timer = setTimeout(my.show.bind(my), my.laps)
+    // console.log("<- fin de prepare « %s »", this.message);
+  }
+
+  show(){
+    // console.log("-> show « %s »", this.message);
+    new Notification(this.message)
+    this.kill_timer()
+  }
+
+  abort(){
+    this.kill_timer()
+    // console.log("Le travail « »%s » a été aborté.", this.message)
+  }
+
+  kill_timer(){
+    clearTimeout(this.timer)
+    delete this.timer
+  }
+
+  get time()    { return this.data.time }
+  get laps()    { return this.data.laps }
+  get message() { return this.data.message}
+}
+
+const CURRENT_WORKS = [] // calculés en fonction du temps courant
+
+// True si la semaine affichée est la semaine courante
+const IS_CURRENT_WEEK = NOW >= WEEK_START_TIME && NOW <= WEEK_END_TIME
+
+const start_app = function(){
+
+  /**
+    On met en exergue le jour courant s'il appartient à la
+    semaine affichée
+  **/
+  if (IS_CURRENT_WEEK){
+    let today_indice = new Date().getUTCDay();
+    let today_name = ['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'][today_indice];
+    let colonne_jour = document.querySelector(`.jour.${today_name}`);
+    colonne_jour.classList.add('exergue');
+  } else {
+    console.log("La semaine affichée n'est pas la semaine courante.")
+  }
+
+
+  /**
+    On va étudier les triggers à lancer
+    La constante TRIGGERS contient un hash avec en clé le timestamp absolu
+    (en millième de secondes) des travaux à exécuter.
+    On passe en revue cette liste pour savoir si des travaux sont à exécuter
+    dans la semaine affichée. Les temps de la semaine affichée sont définies
+    par les constantes WEEK_START_TIME et WEEK_END_TIME
+  **/
+  for ( var t in TRIGGERS ) {
+    t = parseInt(t)
+    // console.log("Comparaison de %d >= %d et %d < %d", t, NOW, t, WEEK_END_TIME);
+    if ( t >= NOW && t < WEEK_END_TIME ) {
+      var data = TRIGGERS[t]
+      data.time = t
+      Object.assign(data, {laps: t - NOW})
+      // On ajoute ce nouveau travail (en le déclenchant)
+      CURRENT_WORKS.push(new Travail(data))
+    }
+  }
+  // console.log(CURRENT_WORKS);
+
+  /**
+    Si le temps courant appartient à la semaine affichée, il faut
+    gérer le curseur de temps (ligne rouge qui descend de minute
+    en minute)
+    Sinon, on le masque.
+  **/
+  if ( IS_CURRENT_WEEK ) {
+    start_time_cursor();
+  } else {
+    mask_time_cursor();
+  }
+}
+
+window.mask_time_cursor = function(){
+  document.getElementById('time_cursor').style.display = "none";
+}
+window.start_time_cursor = function(){
+  this.move_time_cursor();
+  this.cursor_time_timer = setInterval(window.move_time_cursor.bind(window), 60*1000)
+}
+window.end_time_cursor = function(){
+  clearInterval(this.cursor_time_timer)
+  delete this.cursor_time_timer
+}
+const TOP_HOURS = 100;
+window.move_time_cursor = function(){
+  let cursor = document.getElementById('time_cursor');
+  let curhour = document.querySelector('#time_cursor .current_hour');
+  var hrs = new Date().getHours();
+  var mns = new Date().getMinutes() + 1 ;
+  if (mns > 59) { mns = 0; hrs += 1 }
+
+  // // Pour les tests
+  // hrs = 7; mns = 0;
+
+  var top =  ((hrs - FIRST_DAY_HOUR) * 60) + mns + TOP_HOURS + 1 ;
+  // console.log("top = %d ((%d - %d) * 60 + %d - %d)", top, hrs, FIRST_DAY_HOUR, mns, TOP_HOURS);
+  cursor.style.top = `${top}px`;
+  curhour.innerHTML = `${hrs}h${String(mns).padStart(2,'0')}`;
+}
+
+
+Notification.requestPermission().then(function(result) {
+  console.log(result);
+  start_app();
+});
+
+window.addEventListener('beforeunload', ()=>{
+  // Avant de quitter la page, il faut peut-être arrêter le
+  // timer du curseur de temps
+  if (window.cursor_time_timer) window.end_time_cursor()
+  // Avant de quitter la page, il faut arrêter tous les timers
+  for(travail of CURRENT_WORKS){
+    travail.abort()
+  }
+  // console.log("J'ai fait ça avant de quitter la page")
+})
+
+    </script>
+  </head>
+  <body>
+
+
+
+<div class="semaine">
+  <div id="colonne_heures"><div class='heure' style='top:100px;'><span class='heure'>7h00</span></div><div class='demi-heure' style='top:130px;'></div><div class='heure' style='top:160px;'><span class='heure'>8h00</span></div><div class='demi-heure' style='top:190px;'></div><div class='heure' style='top:220px;'><span class='heure'>9h00</span></div><div class='demi-heure' style='top:250px;'></div><div class='heure' style='top:280px;'><span class='heure'>10h00</span></div><div class='demi-heure' style='top:310px;'></div><div class='heure' style='top:340px;'><span class='heure'>11h00</span></div><div class='demi-heure' style='top:370px;'></div><div class='heure' style='top:400px;'><span class='heure'>12h00</span></div><div class='demi-heure' style='top:430px;'></div><div class='heure' style='top:460px;'><span class='heure'>13h00</span></div><div class='demi-heure' style='top:490px;'></div><div class='heure' style='top:520px;'><span class='heure'>14h00</span></div><div class='demi-heure' style='top:550px;'></div><div class='heure' style='top:580px;'><span class='heure'>15h00</span></div><div class='demi-heure' style='top:610px;'></div><div class='heure' style='top:640px;'><span class='heure'>16h00</span></div><div class='demi-heure' style='top:670px;'></div><div class='heure' style='top:700px;'><span class='heure'>17h00</span></div><div class='demi-heure' style='top:730px;'></div><div class='heure' style='top:760px;'><span class='heure'>18h00</span></div><div class='demi-heure' style='top:790px;'></div><div class='heure' style='top:820px;'><span class='heure'>19h00</span></div><div class='demi-heure' style='top:850px;'></div><div class='heure' style='top:880px;'><span class='heure'>20h00</span></div><div class='demi-heure' style='top:910px;'></div><div class='heure' style='top:940px;'><span class='heure'>21h00</span></div><div class='demi-heure' style='top:970px;'></div><div class='heure' style='top:1000px;'><span class='heure'>22h00</span></div><div class='demi-heure' style='top:1030px;'></div></div>
+  <div class="left-column">
+        <div class="semaine-infos">
+      <div class="semaine-number">
+        <span class="arrow-other-week"><a href='Semaine-2019-44.html'>◀︎</a></span>
+        <span>semaine </span><span>45</span>
+        <span class="arrow-other-week"><span class="discret">▶︎</span></span>
+      </div>
+      <div class="semaine-open">
+        <a href="atm:open?url=file:///Users/philippeperret/Programmation/Agenda/_Semaines/2019-45.yaml" title="Ouvrir le fichier de données de la semaine">ouvrir</a>
+      </div>
+      <div class="semaine-from">
+        <div class="from-jour"><span class="label">du </span><span>04 11 2019</span></div>
+        <div class="to-jour"><span class="label">au </span><span>10 11 2019</span></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="jour lundi">
+    <div class="nom_jour">Lundi</div>
+    <div class='date_jour'>04 11 2019</div><div class="travail" style="top:160px;height:52px;background-color:#fff673;">
+  <div class="faire">
+    Définir le travail de la semaine
+  </div>
+  <div class="time">8h00 - 9h00</div>
+</div>
+<div class="travail" style="top:220px;height:52px;background-color:#fbb469;">
+  <div class="faire">
+    Recherche d'articles de blog
+  </div>
+  <div class="time">9h00 - 10h00</div>
+</div>
+<div class="travail" style="top:280px;height:22px;background-color:#fbb469;">
+  <div class="faire">
+    Article blog ARTICLE COURANT 1
+  </div>
+  <div class="time">10h00 - 10h30</div>
+</div>
+<div class="travail" style="top:340px;height:52px;background-color:palegreen;">
+  <div class="faire">
+    Outil icarien pour ajouter un paiement.
+  </div>
+  <div class="time">11h00 - 12h00</div>
+</div>
+<div class="travail" style="top:460px;height:202px;background-color:paleturquoise;">
+  <div class="faire">
+    Travail sur roman « « PASSÉ SOUS SILENCE » »
+  </div>
+  <div class="time">13h00 - 16h30</div>
+</div>
+<div class="travail" style="top:670px;height:7px;background-color:whitesmoke;">
+  <div class="faire">
+    Fin de la journée
+  </div>
+  <div class="time">16h30 - 16h45</div>
+</div>
+
+    <div style="clear:both;"></div>
+  </div>
+  <div class="jour mardi">
+    <div class="nom_jour">Mardi</div>
+    <div class='date_jour'>05 11 2019</div><div class="travail" style="top:160px;height:52px;background-color:#c4c4c4;">
+  <div class="faire">
+    Travailler sur le programme FILM ANALYZOR
+  </div>
+  <div class="time">8h00 - 9h00</div>
+</div>
+<div class="travail" style="top:220px;height:82px;background-color:#fbb469;">
+  <div class="faire">
+    Articles blog : ARTICLE COURANT 2, ARTICLE COURANT 3
+  </div>
+  <div class="time">9h00 - 10h30</div>
+</div>
+<div class="travail" style="top:310px;height:82px;background-color:palegreen;">
+  <div class="faire">
+    Commentaires document Icare
+  </div>
+  <div class="time">10h30 - 12h00</div>
+</div>
+<div class="travail" style="top:460px;height:202px;background-color:paleturquoise;">
+  <div class="faire">
+    Travail sur « « PASSÉ SOUS SILENCE » »
+  </div>
+  <div class="time">13h00 - 16h30</div>
+</div>
+<div class="travail" style="top:670px;height:7px;background-color:whitesmoke;">
+  <div class="faire">
+    Fin actuel de la journée
+  </div>
+  <div class="time">16h30 - 16h45</div>
+</div>
+
+  </div>
+  <div class="jour mercredi">
+    <div class="nom_jour">Mercredi</div>
+    <div class='date_jour'>06 11 2019</div><div class="travail" style="top:160px;height:112px;background-color:#fbb469;">
+  <div class="faire">
+    Analyse du film « FILM ANALYSÉ »
+  </div>
+  <div class="time">8h00 - 10h00</div>
+</div>
+<div class="travail" style="top:220px;height:82px;background-color:#fbb469;">
+  <div class="faire">
+    Articles blog : ARTICLE COURANT 4, ARTICLE COURANT 1
+  </div>
+  <div class="time">9h00 - 10h30</div>
+</div>
+<div class="travail" style="top:280px;height:172px;background-color:whitesmoke;">
+  <div class="faire">
+    Commencer à travailler sur quelque chose.
+  </div>
+  <div class="time">10h00 - 13h00</div>
+</div>
+<div class="travail" style="top:460px;height:202px;background-color:paleturquoise;">
+  <div class="faire">
+    Écriture de « « PASSÉ SOUS SILENCE » »
+  </div>
+  <div class="time">13h00 - 16h30</div>
+</div>
+<div class="travail" style="top:670px;height:7px;background-color:whitesmoke;">
+  <div class="faire">
+    Fin actuel de la journée
+  </div>
+  <div class="time">16h30 - 16h45</div>
+</div>
+
+  </div>
+  <div class="jour jeudi">
+    <div class="nom_jour">Jeudi</div>
+    <div class='date_jour'>07 11 2019</div><div class="travail" style="top:220px;height:82px;background-color:#fbb469;">
+  <div class="faire">
+    Articles blog : ARTICLE COURANT 2, ARTICLE COURANT 3
+  </div>
+  <div class="time">9h00 - 10h30</div>
+</div>
+<div class="travail" style="top:460px;height:202px;background-color:paleturquoise;">
+  <div class="faire">
+    Écriture de « « PASSÉ SOUS SILENCE » »
+  </div>
+  <div class="time">13h00 - 16h30</div>
+</div>
+<div class="travail" style="top:670px;height:7px;background-color:whitesmoke;">
+  <div class="faire">
+    Fin actuel de la journée
+  </div>
+  <div class="time">16h30 - 16h45</div>
+</div>
+
+  </div>
+  <div class="jour vendredi">
+    <div class="nom_jour">Vendredi</div>
+    <div class='date_jour'>08 11 2019</div><div class="travail" style="top:220px;height:22px;background-color:#fbb469;">
+  <div class="faire">
+    Article blog : «ARTICLE COURANT 4»
+  </div>
+  <div class="time">9h00 - 9h30</div>
+</div>
+<div class="travail" style="top:250px;height:52px;background-color:#fbb469;">
+  <div class="faire">
+    Finalisation de l'article «ARTICLE COURANT 1».
+  </div>
+  <div class="time">9h30 - 10h30</div>
+</div>
+<div class="travail" style="top:370px;height:52px;background-color:#c4c4c4;">
+  <div class="faire">
+    Continuer le travail sur Agenda
+  </div>
+  <div class="time">11h30 - 12h30</div>
+</div>
+<div class="travail" style="top:460px;height:202px;background-color:paleturquoise;">
+  <div class="faire">
+    Écriture de « « PASSÉ SOUS SILENCE » »
+  </div>
+  <div class="time">13h00 - 16h30</div>
+</div>
+<div class="travail" style="top:670px;height:7px;background-color:whitesmoke;">
+  <div class="faire">
+    Fin actuel de la journée
+  </div>
+  <div class="time">16h30 - 16h45</div>
+</div>
+
+  </div>
+  <div class="jour samedi">
+    <div class="nom_jour">Samedi</div>
+    <div class='date_jour'>09 11 2019</div><div class="travail" style="top:220px;height:52px;background-color:#fbb469;">
+  <div class="faire">
+    Publication et annonces article blog ARTICLE COURANT 1
+  </div>
+  <div class="time">9h00 - 10h00</div>
+</div>
+<div class="travail" style="top:340px;height:52px;background-color:palegreen;">
+  <div class="faire">
+    Corriger les problèmes de documents QDD absents
+  </div>
+  <div class="time">11h00 - 12h00</div>
+</div>
+<div class="travail" style="top:400px;height:82px;background-color:whitesmoke;">
+  <div class="faire">
+    Surveiller l'arrivée du postier (identité numérique)
+  </div>
+  <div class="time">12h00 - 13h30</div>
+</div>
+<div class="travail" style="top:460px;height:172px;background-color:paleturquoise;">
+  <div class="faire">
+    Écriture de « « PASSÉ SOUS SILENCE » »
+  </div>
+  <div class="time">13h00 - 16h00</div>
+</div>
+
+  </div>
+  <div class="jour dimanche">
+    <div class="nom_jour">Dimanche</div>
+    <div class='date_jour'>10 11 2019</div>
+  </div>
+</div>
+
+    <div id="time_cursor">
+      <span class="current_hour">11h32</span>
+    </div>
+  </body>
+</html>
+

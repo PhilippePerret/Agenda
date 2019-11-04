@@ -1,8 +1,17 @@
-* Pouvoir ne pas préciser de durée, ce qui signifie que le travail dure jusqu'au travail suivant.
+
+* Rebuild doit chercher les fichiers à actualiser
+
+* Quand on actualise une semaine, il faut aussi actualiser les semaines "autour"
+
 * CB pour n'afficher que le jour courant
 * CB(s) pour n'afficher qu'une rubrique/catégorie
 
-* Développer l'idée des catégories pour mettre en couleur
+* Appeler le script "run.rb" au démarrage
 
-* Faire un exécutable qui lancera automatiquement la semaine courante (ou autre, en ligne de commande)
-  Donc l'exécutable doit plutôt lancer une commande générale.
+* Tester :
+  la méthode "up_to_date"
+    - avec une semaine précédente et pas de lien
+    - sans semaine précédente et avec un lien (suppression de semaine)
+    - avec une semaine suivante et sans lien
+    - sans semaine suivante et avec un lien
+    - 

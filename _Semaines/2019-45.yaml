@@ -1,74 +1,193 @@
 ---
-  roman_courant:    &roman_courant « TITRE ROMAN COURANT »
-  article_courant:  &article_courant « TITRE ARTICLE COURANT »
-  film_analysed:    &film_analyzed « TITRE FILM ANALYSÉ »
-  page_narration:   &page_narration « TITRE DE LA PAGE NARRATION OU ID »
+  # Définition des variables
+  roman: « PASSÉ SOUS SILENCE »
+  article1: ARTICLE COURANT 1
+  article2: ARTICLE COURANT 2
+  article3: ARTICLE COURANT 3
+  article4: ARTICLE COURANT 4
+  film:    FILM ANALYSÉ
+  page_narration:   « PAGE NARRATION OU ID »
 
   # Définition des couleurs en fonction de la catégorie (pour la propriété
   # 'categorie')
-  cat_divers: &cat_divers palegreen
-  icare_editions: &icare_editions palegoldenrod
-  roman: &roman paleturquoise
-  analyse_film: &analyse_film palevioletred
   programmation: &programmation whitesmoke
 
-  # Définition des rubriques
-  icare: &icare "Atelier Icare"
-  scrivener: &scrivener "Tutos Scrivener"
+  Rubriques:
+    Divers:
+      titre: Divers
+      couleur: "#fff673" # ~jaune
+    Roman:
+      titre: Romans
+      couleur: paleturquoise
+      categorie: Écriture
+    Musique:
+      titre: Musique
+      couleur: palegoldenrod
+    Narration:
+      titre: Collection Narration
+      couleur: palevioletred
+    Scrivener:
+      titre: Tutoriels Scrivener
+      couleur: whitesmoke
+      categorie: Tutoriels
+    Icare:
+      titre: Atelier Icare
+      couleur: palegreen
+    IcareEditions:
+      titre: Icare Éditions
+      couleur: "#fbb469"
+    Programmation:
+      titre: Programmation
+      couleur: "#c4c4c4"
+      categorie: Programmation
 
   lundi:
+
     8h00:
       faire: Définir le travail de la semaine
       duree: 60
-      categorie: *cat_divers
+      rubrique: Divers
 
     9h00:
-      faire: Travail sur l'article de blog
-      objet: *article_courant
-      duree: 90
-      categorie: *icare_editions
+      faire: Recherche d'articles de blog
+      duree: 60
+      rubrique: IcareEditions
 
+    10h00:
+      faire: Article blog %{article1}
+      duree: 30
+      rubrique: IcareEditions
+      categorie: Écriture
+
+    11h00:
+      faire: Outil icarien pour ajouter un paiement.
+      duree: 60
+      rubrique: Icare
+      categorie: Programmation
 
     13h00:
-      faire: Travail sur roman courant
-      objet: *roman_courant
-      duree: 180
-      categorie: *roman
-      rubrique: ecriture
+      faire: Travail sur roman « %{roman} »
+      rubrique: Roman
+
+    16h30:
+      faire: Fin de la journée
+      duree: 15
 
   mardi:
     8h00:
-      faire: Travailler sur le programme FILM ANALYZOR ou poursuivre l'analyse
-      objet: *film_analyzed
+      faire: Travailler sur le programme FILM ANALYZOR
       duree: 60
-      categorie: *analyse_film
+      categorie: programmation
+      rubrique: Programmation
 
     9h00:
-      faire: Rédaction de l'article de blog
-      objet: *article_courant
+      faire: "Articles blog : %{article2}, %{article3}"
       duree: 90
-      categorie: *icare_editions
+      rubrique: IcareEditions
+      categorie: Écriture
 
     10h30:
       faire: Commentaires document Icare
       duree: 90
-      categorie: *roman
+      categorie: script-doctoring
+      rubrique: Icare
+
+    13h00:
+      faire: Travail sur « %{roman} »
+      rubrique: Roman
+
+    16h30:
+      faire: Fin actuel de la journée
+      duree: 15
+
 
   mercredi:
+    8h00:
+      faire: Analyse du film « %{film} »
+      duree: 120
+      rubrique: IcareEditions
+      categorie: Analyse
+
+    9h00:
+      faire: "Articles blog : %{article4}, %{article1}"
+      duree: 90
+      rubrique: IcareEditions
+      categorie: Écriture
+
     10h00:
       faire: Commencer à travailler sur quelque chose.
 
+    13h00:
+      faire: Écriture de « %{roman} »
+      rubrique: Roman
+
+    16h30:
+      faire: Fin actuel de la journée
+      duree: 15
+
+  jeudi:
+
+    9h00:
+      faire: "Articles blog : %{article2}, %{article3}"
+      duree: 90
+      rubrique: IcareEditions
+      categorie: Écriture
+
+    13h00:
+      faire: Écriture de « %{roman} »
+      rubrique: Roman
+
+    16h30:
+      faire: Fin actuel de la journée
+      duree: 15
+
+
   vendredi:
+
+    9h00:
+      faire: "Article blog : «%{article4}»"
+      duree: 30
+      rubrique: IcareEditions
+      categorie: Écriture
+
+    9h30:
+      faire: Finalisation de l'article «%{article1}».
+      duree: 60
+      rubrique: IcareEditions
+      categorie: Écriture
+
     11h30:
       faire: Continuer le travail sur Agenda
       duree: 60
-      categorie: *programmation
+      rubrique: Programmation
+      categorie: Programmation
+
+    13h00:
+      faire: Écriture de « %{roman} »
+      rubrique: Roman
+
+    16h30:
+      faire: Fin actuel de la journée
+      duree: 15
+
+
 
   samedi:
+
+    9h00:
+      faire: Publication et annonces article blog %{article1}
+      duree: 60
+      rubrique: IcareEditions
+
     11h00:
       faire: Corriger les problèmes de documents QDD absents
       duree: 60
-      rubrique: *icare
+      rubrique: Icare
+      categorie: Programmation
     12h00:
       faire: Surveiller l'arrivée du postier (identité numérique)
       duree: 90
+    13h00:
+      faire: Écriture de « %{roman} »
+      duree: 180
+      rubrique: Roman
