@@ -80,22 +80,7 @@
 
   mardi:
     8h00:
-      faire: Travailler sur le programme FILM ANALYZOR
-      duree: 60
-      categorie: programmation
-      rubrique: Programmation
-
-    9h00:
-      faire: "Articles blog : %{article2}, %{article3}"
-      duree: 90
-      rubrique: IcareEditions
-      categorie: Écriture
-
-    10h30:
-      faire: Commentaires document Icare
-      duree: 90
-      categorie: script-doctoring
-      rubrique: Icare
+      faire: Travailler sur le NARRATION CLI
 
     13h00:
       faire: Travail sur « %{roman} »
