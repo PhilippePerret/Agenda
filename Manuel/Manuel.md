@@ -1,6 +1,8 @@
 # Agenda
 
 * [Présentation générale](#presentation)
+* [Construction de l'agenda](#build_agenda)
+  * [Forcer la reconstruction de tout l'agenda](#force_rebuild)
 * [Créer une semaine](#create_week)
   * [Utiliser des variables](#use_variables)
 * [Travaux récurrents](#travaux_recurrents)
@@ -11,6 +13,24 @@
 
 **Agenda** permet de gérer l'emploi du temps de ses semaines et d'avertir à chaque changement de travail.
 
+Il fonctionne en définissant :
+
+* les semaines de travail (dans le dossier `./_Semaines/`)
+* les travaux récurrents (dans le dossier `./_Semaines/_travaux-recurrents/`)
+
+<a name="build_agenda"></a>
+
+## Construction de l'agenda
+
+Pour reconstruire les fichiers de semaine modifiés, il faut lancer le script `rebuild.rb`.
+
+> Si une nouvelle semaine a été créée, le lancement se lance automatiquement, au changement des données (avec `entr`).
+
+<a name="force_rebuild"></a>
+
+### Forcer la reconstruction de tout l'agenda
+
+Pour forcer la reconstruction de toutes les semaines, par exemple après un changement des styles ou du gabarit, il faut mettre la constante `FORCE_REBUILD` à `true` dans le fichier `rebuild.rb` et le lancer (CMD+i dans Atom).
 
 <a name="create_week"></a>
 
