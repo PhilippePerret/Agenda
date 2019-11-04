@@ -25,14 +25,31 @@ class Semaine
       @first_hour ||= 7
     end
 
+    # Retourne l'instance {Semaine} de la semaine courante
+    def courante
+      @courante ||= begin
+        now   = Time.now
+        year  = now.year
+        cweek = Date.today.cweek.to_i
+        Semaine.new(year,cweek)
+      end
+    end
 
-    # Méthode de classe qui ouvre la semaine courante si elle existe
-    def open_current_if_exists
-      now   = Time.now
-      year  = now.year
-      cweek = Date.today.cweek.to_i
-      semaine = Semaine.new(year,cweek)
-      semaine.open if semaine.exists?
+    # Méthode qui lance la surveillance du dossier _Semaines pour
+    # actualiser les semaines après modification des fichiers données
+    def watch_data_folder
+      `cd "#{APPFOLDER}";ls ./_Semaines/*.yaml | entr ./rebuild.rb /_`
+    end
+
+    # Retourne l'instance {Semaine} de la dernière semaine définie
+    #
+    # Permet de créer la nouvelle semaine en se basant sur ce fichier
+    def derniere
+      @derniere ||= begin
+        ldf = Dir["#{SEMAINE_FOLDER}/*.yaml"].sort.last
+        year,cweek = File.basename(ldf,File.extname(ldf)).split('-')
+        Semaine.new(year, cweek)
+      end
     end
 
   end #/<< self

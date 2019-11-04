@@ -16,9 +16,11 @@
 require_relative 'lib/_required'
 
 # On ouvre le fichier de la semaine courante dans le navigateur
-Semaine.open_current_if_exists
-# TODO
-
-
-# On lance la commande qui va surveiller les fichiers de données des semaines
-# TODO
+if Semaine.courante.exists?
+  Semaine.courante.open
+else
+  # Si la semaine courante n'existe pas, on la crée et on lance le script qui
+  # surveille les modifications
+  Semaine.courante.create
+  Semaine.watch_data_folder
+end

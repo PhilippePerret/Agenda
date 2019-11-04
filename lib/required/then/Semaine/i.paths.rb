@@ -2,13 +2,20 @@
 
 class Semaine
 
-  def data_file_exist?
-    File.exists?(data_path)
-  end
   def exist?
+    # Si le fichier HTML n'existe pas mais que le fichier data existe,
+    # il faut (re)construire le fichier
+    if data_file_exist? && !File.exists?(week_path)
+      build
+    end
     File.exists?(week_path)
   end
   alias :exists? :exist?
+
+  # Retourne true si le fichier de données du fichier existe
+  def data_file_exist?
+    File.exists?(data_path)
+  end
 
   def week_path
     @week_path ||= File.join(AGENDA_FOLDER,week_filename)

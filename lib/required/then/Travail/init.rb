@@ -7,9 +7,9 @@ class Semaine
       attr_reader :data
       attr_reader :start_time, :end_time, :real_start_time, :real_end_time
 
-      def initialize heure_str, donnees
+      def initialize donnees
         @data = donnees
-        define_times(heure_str)
+        define_times(donnees['heure'])
       end
 
       # Les données à retourner pour le trigger javascript

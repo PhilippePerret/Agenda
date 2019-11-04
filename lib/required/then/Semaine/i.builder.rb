@@ -32,7 +32,7 @@ class Semaine
   # Tous les jours construits
   # C'est un hash avec en clé le nom fr du jour
   def building_days
-    @building_days || begin
+    @building_days ||= begin
       h = {}
       Semaine::DAYS.each do |k, v|
         h.merge!(k => build_day(k))
@@ -52,12 +52,32 @@ class Semaine
 
     return str if djour.nil?
 
-    data[jour].each do |heure, donnees|
+    # On commence par classer tous les travaux par temps pour pouvoir
+    # récupérer facilement le temps du travail suivant quand la durée du
+    # travail courant n'est pas défini
+    # Il faut commencer par mettre l'heure dans les données
+    travaux = data[jour].collect do |heure, donnees|
+      donnees.merge!('heure' => heure)
+    end.sort_by { |donnees| donnees['heure'].to_minutes }
+
+    # puts "travaux : #{travaux.inspect}"
+
+    travaux.each_with_index do |donnees, index|
       donnees.merge!({
         semaine: self,
         indice_jour: indice_jour
       })
-      travail = Semaine::Jour::Travail.new(heure, donnees)
+      # Si la durée n'est pas définie dans le travail courant, il faut la
+      # déduire du travail suivant
+      if donnees['duree'].nil?
+        next_travail = travaux[index + 1]
+        donnees.merge!('duree' => if next_travail.nil?
+            60
+          else
+            next_travail['heure'].to_minutes - donnees['heure'].to_minutes
+          end)
+      end
+      travail = Semaine::Jour::Travail.new(donnees)
       str << travail.build
       add_trigger(travail.trigger_data)
     end
