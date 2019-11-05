@@ -2,6 +2,7 @@ body {
   font-size: 0.81em;
   margin:0;
   padding:0;
+  background-color:#797979;
 }
 
 .none {
@@ -110,7 +111,7 @@ div.semaine div.jour div.travail div.time {
 div.semaine div.left-column {
   grid-column:1/2;
   position:relative;
-  background-color:#dfdfdf;
+  background-color:#595959;
   z-index:1;
 }
 
