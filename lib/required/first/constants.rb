@@ -3,5 +3,6 @@
 
 SEMAINE_FOLDER  = File.join(APPFOLDER,'_Semaines')
 SEMAINES_FOLDER = SEMAINE_FOLDER
+TRAVAUX_RECURRENTS_FOLDER = File.join(SEMAINES_FOLDER,'_travaux-recurrents')
 ASSETS_FOLDER   = File.join(APPFOLDER,'lib/assets')
 AGENDA_FOLDER   = File.join(APPFOLDER,'agenda')

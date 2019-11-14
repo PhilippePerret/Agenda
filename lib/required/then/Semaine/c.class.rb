@@ -43,7 +43,8 @@ class Semaine
 
     # Retourne l'instance {Semaine} de la dernière semaine définie
     #
-    # Permet de créer la nouvelle semaine en se basant sur ce fichier
+    # Permet de créer la nouvelle semaine en se basant sur le fichier
+    # de la dernière semaine
     def derniere
       @derniere ||= begin
         ldf = Dir["#{SEMAINE_FOLDER}/*.yaml"].sort.last

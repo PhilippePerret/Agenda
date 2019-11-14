@@ -33,7 +33,10 @@ class Semaine
       # Retourne le code HTML pour le créneau horaire
       def build
         <<-HTML
-<div class="travail" style="top:#{top}px;height:#{height}px;background-color:#{couleur};">
+<div
+  class="travail"
+  style="top:#{top}px;height:#{height}px;background-color:#{couleur};"
+  title="#{note}">
   <div class="faire">
     #{action}#{f_objet}
   </div>
@@ -104,6 +107,9 @@ class Semaine
       end
       def categorie
         @categorie ||= data['categorie'] || (rubrique && rubrique.categorie)
+      end
+      def note
+        @note ||= data['note']
       end
     end #/Travail
   end #/Jour

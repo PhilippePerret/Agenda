@@ -57,7 +57,16 @@ class Semaine
     # Il faut commencer par mettre l'heure dans les données
     travaux = data[jour].collect do |heure, donnees|
       donnees.merge!('heure' => heure)
-    end.sort_by { |donnees| donnees['heure'].to_minutes }
+    end
+
+    # Il faut ajouter les travaux récurrents
+    travaux += RecurTravail.works_of_day(date_jour)
+
+    # On vérifie les éventuels chevauchements
+    # TODO
+
+    # On les classe par temps
+    travaux = travaux.sort_by { |donnees| donnees['heure'].to_minutes }
 
     # puts "travaux : #{travaux.inspect}"
 

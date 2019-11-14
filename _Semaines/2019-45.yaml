@@ -1,6 +1,6 @@
 ---
   # Définition des variables
-  roman: « PASSÉ SOUS SILENCE »
+  roman: "PASSÉ SOUS SILENCE"
   article1: ARTICLE COURANT 1
   article2: ARTICLE COURANT 2
   article3: ARTICLE COURANT 3
@@ -40,6 +40,10 @@
       titre: Programmation
       couleur: "#c4c4c4"
       categorie: Programmation
+    AnalyseFilm:
+      titre: Analyse de film
+      couleur: "#f669fb"
+      categorie: Analyse
 
   lundi:
 
@@ -47,6 +51,7 @@
       faire: Définir le travail de la semaine
       duree: 60
       rubrique: Divers
+      note: "Il faut ouvrir le fichier de la semaine en utilisant le lien « Ouvrir » ci-contre en haut."
 
     9h00:
       faire: Recherche d'articles de blog
@@ -69,34 +74,19 @@
       faire: Travail sur roman « %{roman} »
       rubrique: Roman
 
-    16h30:
+    18h30:
       faire: Fin de la journée
       duree: 15
 
   mardi:
     8h00:
-      faire: Travailler sur le programme FILM ANALYZOR
-      duree: 60
-      categorie: programmation
-      rubrique: Programmation
-
-    9h00:
-      faire: "Articles blog : %{article2}, %{article3}"
-      duree: 90
-      rubrique: IcareEditions
-      categorie: Écriture
-
-    10h30:
-      faire: Commentaires document Icare
-      duree: 90
-      categorie: script-doctoring
-      rubrique: Icare
+      faire: Travailler sur le NARRATION CLI
 
     13h00:
       faire: Travail sur « %{roman} »
       rubrique: Roman
 
-    16h30:
+    18h30:
       faire: Fin actuel de la journée
       duree: 15
 
@@ -105,7 +95,7 @@
     8h00:
       faire: Analyse du film « %{film} »
       duree: 120
-      rubrique: IcareEditions
+      rubrique: AnalyseFilm
       categorie: Analyse
 
     9h00:
@@ -121,11 +111,17 @@
       faire: Écriture de « %{roman} »
       rubrique: Roman
 
-    16h30:
+    18h30:
       faire: Fin actuel de la journée
       duree: 15
 
   jeudi:
+
+    8h00:
+      faire: Travailler sur le programme PROXIMIT
+      duree: 60
+      categorie: programmation
+      rubrique: Programmation
 
     9h00:
       faire: "Articles blog : %{article2}, %{article3}"
@@ -137,13 +133,17 @@
       faire: Écriture de « %{roman} »
       rubrique: Roman
 
-    16h30:
+    18h30:
       faire: Fin actuel de la journée
       duree: 15
 
 
   vendredi:
 
+    8h00:
+      faire: Tutoriel Scrivener
+      rubrique: Scrivener
+      categorie: Écriture
     9h00:
       faire: "Article blog : «%{article4}»"
       duree: 30
@@ -166,7 +166,7 @@
       faire: Écriture de « %{roman} »
       rubrique: Roman
 
-    16h30:
+    18h30:
       faire: Fin actuel de la journée
       duree: 15
 
@@ -191,3 +191,6 @@
       faire: Écriture de « %{roman} »
       duree: 180
       rubrique: Roman
+    18h30:
+      faire: Fin de la journée
+      duree: 15
