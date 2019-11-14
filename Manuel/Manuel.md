@@ -146,18 +146,16 @@ Un travail récurrent se crée dans le dossier `./_Semaines/_travaux-recurrents`
 C'est un fichier YAML qui définit ces données :
 
 ~~~yaml
-
---
-  faire: "Le titre du travail, ce qu'il y a à faire"
-  frequence: 1    # la fréquence, en nombre de jours (cf. ci-dessous)
-  frequence_start: "22/07/2019" # date de départ de la fréquence
-  jours: [...]    # Si la fréquence n'est pas utilisée, liste des jours
-                  # Par exemple ['mardi', 'jeudi']
-  heure: 10h20    # heure d'exécution du travail
-  duree: 90       # la durée du travail, en nombre de minutes
-  rubrique: "x"   # en fonction des définitions
-  categorie: "x"  # en fonction des définitions
-  note: "Une note à afficher quand on passe la souris sur le jour."
+faire: "Le titre du travail, ce qu'il y a à faire"
+frequence: 1    # la fréquence, en nombre de jours (cf. ci-dessous)
+frequence_start: "22/07/2019" # date de départ de la fréquence
+jours: [...]    # Si la fréquence n'est pas utilisée, liste des jours
+                # Par exemple ['mardi', 'jeudi']
+heure: 10h20    # heure d'exécution du travail
+duree: 90       # la durée du travail, en nombre de minutes
+rubrique: "x"   # en fonction des définitions
+categorie: "x"  # en fonction des définitions
+note: "Une note à afficher quand on passe la souris sur le jour."
 ~~~
 
 ### Fréquence
