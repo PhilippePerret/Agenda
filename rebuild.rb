@@ -14,10 +14,12 @@ if defined?(Semaine)
     # Si la semaine est à jour, rien à faire, sinon, on la reconstruit
     # Note : une semaine n'est pas à jour aussi si elle ne contient pas
     # le lien vers une autre semaine alors qu'elle existe (nouvelle semaine)
-    next if semaine.up_to_date?
-
-    # Sinon, on reconstruit la semaine
-    semaine.build
+    if semaine.up_to_date? && !FORCE_REBUILD
+      next
+    else
+      # Sinon, on reconstruit la semaine
+      semaine.build
+    end
   end
 
   # Ouvrir, la première fois :
