@@ -22,7 +22,7 @@ class Semaine
     # Première heure de la journée
     # TODO: Pouvoir la définir par un fichier de configuration.
     def first_hour
-      @first_hour ||= 7
+      @first_hour ||= 6
     end
 
     # Retourne l'instance {Semaine} de la semaine courante
