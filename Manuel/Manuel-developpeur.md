@@ -30,7 +30,7 @@ Pour reconstruire les fichiers de semaine modifiés, il faut lancer le script `r
 
 ### Forcer la reconstruction de tout l'agenda
 
-Pour forcer la reconstruction de toutes les semaines, par exemple après un changement des styles ou du gabarit, il faut mettre la constante `FORCE_REBUILD` à `true` dans le fichier `rebuild.rb` et le lancer (CMD+i dans Atom).
+Pour forcer la reconstruction de toutes les semaines, par exemple après un changement des styles, des javascripts ou du gabarit, il faut mettre la constante `FORCE_REBUILD` à `true` dans le fichier `rebuild.rb` et le lancer (CMD+i dans Atom).
 
 <a name="create_week"></a>
 
@@ -167,3 +167,11 @@ Quand on définit la fréquence, elle est considérée soit depuis le début de 
 ### Durée
 
 La durée est définie par la propriété `duree`, en nombre de minutes. Si elle n'est pas définie, la fin sera calculée en fonction du travail suivant dans la journée. Ainsi il est possible d'avoir un travail quotidien de durée différente en fonction des jours.
+
+
+
+## Fonctionnement Javascript
+
+Une partie du fonctionnement est dévolu à javascript. Tout le code se trouve dans le fichier `./lib/assets/gabarit.js`.
+
+Mais attention, c’est du code qui est chargé «  en dur », c’est-à-dire que si on le modifie, pour le moment, il est impératif de [reconstruire tous les fichiers semaines](#force_rebuild).

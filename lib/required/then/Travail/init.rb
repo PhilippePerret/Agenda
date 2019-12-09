@@ -87,7 +87,7 @@ class Semaine
         @semaine ||= data[:semaine]
       end
       def indice_jour
-        @indice_jour ||= data[:indice_jour] - 1
+        @indice_jour ||= data[:indice_jour] # - 1
       end
       def objet
         @objet ||= data['objet']
